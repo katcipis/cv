@@ -1,0 +1,414 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggeri Resume/CV
+% XeLaTeX Template
+% Version 1.0 (5/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography, if used,
+% needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+
+\begin{document}
+
+\header{tiago}{katcipis}{software developer} % Your name and current job title/field
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{aside} % In the aside, each new line forces a line break
+\section{contact}
++(55)(48)91060132
+~
+\href{mailto:tiagokatcipis@gmail.com}{tiagokatcipis@gmail.com}
+\href{https://github.com/katcipis}{GitHub}
+\href{http://www.linkedin.com/pub/tiago-katcipis/1b/273/8b0}{LinkedIn}
+\href{http://katcipis.github.io/}{Blog}
+\section{languages skill}
+English: advanced (reading, writing); intermediate (speaking)
+\section{programming languages}
+C, C++, Go, Python, Lua, Vala, Javascript, Shell, Java
+\section{protocols}
+DBus, RTMP, HTTP, SMTP, SIP, RTP, AMQP
+\section{cloud}
+Kubernetes, AWS, Docker, CoreOS
+\section{databases}
+MongoDB, PostgreSQL
+\section{documentation}
+Gtk-Doc, Doxygen, Docbook, LDoc, LaTeX, Docco
+\section{automation}
+Ansible, Make, Grunt
+\section{dev environment}
+Vagrant, Docker Compose
+\section{monitoring}
+Prometheus, Grafana, StatsD, Sysdig
+\end{aside}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{education}
+
+\begin{entrylist}
+%------------------------------------------------
+%------------------------------------------------
+\entry
+{2006--2011}
+{Bachelor of Computer Science}
+{UFSC}
+{}
+%------------------------------------------------
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{experience}
+
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2015--now}
+{Neoway}
+{Florianópolis, Santa Catarina}
+{\emph{Software Developer} \\
+
+    Technical lead of the team responsible for capturing data from the web and publishing it to the entire company,
+which involved solving hard problems as:\\
+
+\begin{itemize}
+    \item Scraping the web (Scrapy and Selenium)
+    \item Parsing data from multiple formats (HTML, PDF, SWF)
+    \item Manage a massive amount of raw data at S3
+    \item Defining and documenting good protocols for proper service integration
+    \item Developing services on different languages, like Go and Python
+    \item Define good heuristics to detect data production problems on the fly
+    \item Migrating the whole production pipeline to a new service oriented architecture
+    \item Coach the team on good test techniques for the new architecture
+    \item Keep a service providing good proxies for the scrapers
+    \item Helped maintaining the captcha breaking service
+\end{itemize}
+
+Besides the technical challenges I also helped the team to apply agile development practices, like 
+TDD (Test Driven Development), , code review, CRC (Class Collaborator Cards) and continuous integration. 
+Together we built a DevOps culture to enable infrastructure as code on our team, we where responsible for the
+whole solution, from the development to testing and deployment (including monitoring the production system).\\
+
+Main accomplishments:
+
+\begin{itemize}
+    \item Technical leadership and coaching for a team of 6 people
+    \item Built a new crawling framework, from scratch to production
+    \item Fully automated development environment with docker compose
+    \item Used docker as a development and deployment tool
+    \item Cluster orchestration at AWS using Kubernetes, CoreOS and Docker
+    \item Migrating all infrastructure from Codero to AWS
+    \item Migrated a database oriented architecture to new microservices ecosystem
+    \item Migrated the old framework, with more than 200 bots, to the new one
+    \item Actively participated on the screening and interviews of new candidates for the team
+    \item Coached new members
+    \item Implemented a real time monitoring for the data production pipeline using StatsD and Sysdig
+    \item Gave talks inside the company and on events like TDC (The Developers Conference)
+\end{itemize}
+}
+\end{entrylist}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2012--2015}
+{Dígitro}
+{Florianópolis, Santa Catarina}
+{\emph{Systems Analyst} \\
+
+Technical lead of the team, helping on design, implementation and testing of new and legacy software.\\
+
+Development of a REST service responsible for audio streaming and audio metadata extraction.\\
+
+Helping the team to apply agile development practices, like TDD, self organization and continuous integration.\\
+
+Evangelizing the adoption of the DevOps culture to enable infrastructure as code on the entire organization.\\
+
+Helped on the adoption of new technologies like NodeJS, defining good practices and the tool set.\\
+
+Coaching new members on the team.\\
+
+Main accomplishments:\\
+
+\begin{itemize}
+\item Defining the architecture and contract of a REST service from scratch.
+\item Implementing a REST service with TDD.
+\item Acquired knowledge with NodeJS, Express, Mocha, Istanbul, JSHint, Grunt.
+\item Integration of a NodeJS server with multiple child processes.
+\item Developing GStreamer plugins with TDD.
+\item Constructed development environments with Vagrant.
+\item Orchestration with Ansible.
+\item Performed presentations to disseminate the idea of distributed/automated development environments.
+\item Coaching the use of TDD on the team.
+\item Helping the team to introduce automated tests on legacy code.
+\item Coached two new members on the team.
+\item Usage of CRC cards to design systems.
+\item Contributing on the migration process from svn to git.
+\item Experience integrating heterogeneous systems.
+\end{itemize}
+}
+\end{entrylist}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2010--2012}
+{Dígitro}
+{Florianópolis, Santa Catarina}
+{\emph{Programmer} \\
+
+Development of a VoIP phone microservices, participating actively on the design and
+architecture of the solutions.\\
+
+Some of the services include:\\
+\begin{itemize}
+\item Audio streaming with RTMP.
+\item Voice biometrics.
+\item Word searching on audio.
+\item REST interface for a PBX.\\
+\end{itemize}
+
+Main accomplishments:\\
+
+\begin{itemize}
+\item Acquired knowledge on interprocess communication using DBus.
+\item Object orientation in C.
+\item TDD on embedded C.
+\item Development of VoIP applications.
+\item Embedding Lua code on C.
+\item Defining the API and architecture of web services and middlewares.
+\item Embedded developing on blackfin platform, using uCLinux and UBoot.
+\item Continuous integration using Jenkins.
+\item Experience with document oriented databases.
+\item Database replication with MongoDB.\\
+\end{itemize}
+}
+\end{entrylist}
+%------------------------------------------------
+\begin{entrylist}
+\entry
+{2008--2010}
+{Dígitro}
+{Florianópolis, Santa Catarina}
+{\emph{Trainee} \\
+
+Developing cross platform applications (Windows and Linux) for audio streaming.
+Development of a prototype for a voice biometrics system.
+
+Main accomplishments:\\
+
+\begin{itemize}
+\item Cross compiling code to Windows using mingw.
+\item Developing a cross platform native application in Python.
+\item Developing a simple web server in Python.\\
+\end{itemize}
+
+}
+\end{entrylist}
+%------------------------------------------------
+\begin{entrylist}
+\entry
+{2007-2008}
+{Cyclops / LAPIX}
+{Florianópolis, Santa Catarina}
+{\emph{Trainee} \\
+
+Developing new features on the DICOMizer, a system responsible to integrate medical equipment to the DICOM system.
+
+Main accomplishments:\\
+
+\begin{itemize}
+\item Experience with C++ development and XML parsing.
+\item Developing a native frontend with C++ and wXwidgets.
+\item Automating the development environment with Python.
+\item Test automation using CppUnit.
+\end{itemize}
+}
+\end{entrylist}
+%------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	PROJECTS SECTION
+%----------------------------------------------------------------------------------------
+
+\pagebreak
+\section{open source projects}
+
+\begin{entrylist}
+\entry
+{2013}
+{CppUTest}
+{\href{http://cpputest.github.io}{http://cpputest.github.io}}
+{
+CppUTest is a C /C++ based unit xUnit test framework for unit testing and for test-driving code.
+
+Main accomplishments:\\
+\begin{itemize}
+\item Improving documentation.
+\item Implementing new features on the mocking infrastructure.
+\item Refactoring on the mocking infrastructure.
+\end{itemize}
+}
+%------------------------------------------------
+\end{entrylist}
+
+\begin{entrylist}
+\entry
+{2012}
+{GStreamer}
+{\href{http://www.gstreamer.net}{http://www.gstreamer.net}}
+{
+GStreamer is a library for constructing graphs of media-handling components.
+
+Main accomplishments:\\
+\begin{itemize}
+\item Developing the \emph{removesilence} plugin.
+\item Improving GstCheck documentation.
+\end{itemize}
+}
+%------------------------------------------------
+\end{entrylist}
+
+\begin{entrylist}
+\entry
+{2010-2011}
+{Pattern detection on H.264}
+{\href{https://github.com/katcipis/h264.pattern.detection}{https://github.com/katcipis/h264.pattern.detection}}
+{
+This project is a prototype of a H.264 CODEC that uses OpenCV and H.264 internal algorithms to do pattern detection and
+object tracking integrated on the encoding process.
+
+Metadata generated on the encoding process is integrated on the video bitstream on conformance with the standard.
+
+Main accomplishments:\\
+\begin{itemize}
+\item Development of research abilities and textual elaboration of the results obtained.
+\item Usage of a machine learning algorithm (Haar) to detect patterns.
+\item Object oriented C code integrated to a large C code base (the H.264 reference CODEC).
+\item Understanding of the motion estimation algorithms present on H.264.
+\item Writing documents in LaTeX.
+\end{itemize}
+}
+%------------------------------------------------
+\end{entrylist}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2011}
+{Smartgrid - Access Control}
+{\href{https://github.com/katcipis/smartbuilding.accesscontrol}{https://github.com/katcipis/smartbuilding.accesscontrol}}
+{
+
+Access control system designed to work on a smartgrid. Consists on tablets controlling access to the rooms based on
+a authentication server where the identification is made using RFID.
+
+Also developed the server where new users are registered.
+
+Main accomplishments on the server:\\
+\begin{itemize}
+\item Developing Python server using the ICE protocol (Internet Communications Engine).
+\item Document oriented database using CouchDB.
+\item Native GUI using QT (PySide).
+\item Integration with a RFID USB reader.
+\end{itemize}
+
+Main accomplishments on the client:\\
+\begin{itemize}
+\item Developing on Android 3.0, integrating Java and C++ code (using NDK and JNI).
+\item Communication with a server using the ICE protocol.
+\end{itemize}
+}
+\end{entrylist}
+%------------------------------------------------
+
+\begin{entrylist}
+\entry
+{2010-2011}
+{LuaSofia}
+{\href{https://github.com/ppizarro/luasofia}{https://github.com/ppizarro/luasofia}}
+{
+
+Lua binding for the Sofia-SIP library.
+Contributed to the project from the start, helping to make decisions about the design of the software and documenting it.
+
+Main accomplishments:\\
+\begin{itemize}
+\item Binding Lua to C.
+\item Understanding of the SIP protocol.
+\end{itemize}
+}
+%------------------------------------------------
+\end{entrylist}
+
+%------------------------------------------------
+\begin{entrylist}
+\entry
+{2010}
+{GPS tracking system}
+{\href{https://github.com/katcipis/gps.tracking}{https://github.com/katcipis/gps.tracking}}
+{
+
+System designed to provide the location of a device through SMS. 
+
+Main accomplishments:\\
+\begin{itemize}
+\item Integrating an AVR microcontroller with a G.24 Motorola modem and a GPS.
+\item C++ code optimized to embedded systems (no heap allocations or kernel involved).
+\item Understanding of the Motorola G.24 AT protocol.
+\end{itemize}
+}
+\end{entrylist}
+
+%------------------------------------------------
+\begin{entrylist}
+\entry
+{2010}
+{LuaNotify}
+{\href{https://github.com/katcipis/luanotify}{https://github.com/katcipis/luanotify}}
+{
+
+Lua library that implements the Pub/Sub pattern, inspired on glib GSignal.
+
+Main accomplishments:\\
+\begin{itemize}
+\item Developing Lua code with TDD.
+\item Documenting Lua code with LDoc.
+\item Packaging Lua code with LuaRocks.
+\end{itemize}
+}
+%------------------------------------------------
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{interests}
+
+\textbf{professional:} web services, cloud computing, test driven development, agile development, software engineering, software architecture, networks, linux, open source, metaprogramming, artificial intelligence, image processing, functional programming, embedded systems
+
+\textbf{books:} The Pragmatic Programmer, Pragmatic Thinking \& Learning, Test Driven Development for Embedded C, REST in Practice, Refactoring: Improving the Design of Existing Code.
+
+\end{document}
