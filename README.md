@@ -1,12 +1,9 @@
-To build the pdf:
+# CV
 
-make install-fonts
+This is my curriculum, if you want to check it out just run:
+
+```
 make
+```
 
-If you get any problem like:
-
-'The font "lmmath-regular.otf" cannot be found.'
-
-Take a look here:
-
-http://comments.gmane.org/gmane.linux.redhat.fedora.texlive/550
+That is it :-). The only dependency is docker.
