@@ -44,7 +44,7 @@ C, C++, Go, Python, Lua, Vala, Javascript, Shell, Java
 \section{protocols}
 DBus, RTMP, HTTP, SMTP, SIP, RTP, AMQP
 \section{cloud}
-Kubernetes, AWS, Docker, CoreOS
+Kubernetes, AWS, Azure, Docker, CoreOS
 \section{databases}
 MongoDB, PostgreSQL
 \section{documentation}
@@ -98,17 +98,17 @@ which involved solving hard problems as:\\
     \item Maintaining all downloaded raw data at S3
     \item Defining and documenting good protocols for proper service integration
     \item Developing services on different languages, like Go and Python
-    \item Define good heuristics to detect data production problems on the fly
     \item Migrating the whole data pipeline to a new service oriented architecture
     \item Coach the team on good test techniques for the new architecture
-    \item Developed new service to provide good proxies for the scrapers
-    \item Developed new captcha breaking service
+    \item Developed new services to provide good proxies and captcha breaking
 \end{itemize}
 
-Besides the technical challenges I also helped the team to apply agile development practices, like
-TDD (Test Driven Development),code review, CRC (Class Collaborator Cards) and continuous integration.
-Together we built a DevOps culture to enable infrastructure as code on our team, we where responsible for the
-whole solution, from the development to testing and deployment (including monitoring the production system).\\
+Besides the technical challenges I also helped the team to apply some
+development practices, like TDD (Test Driven Development),code review
+and continuous integration.
+Together we built a DevOps culture to enable infrastructure as code
+on our team, we where responsible for the whole solution, from the development
+to testing and deployment (including monitoring the production system).\\
 
 Main accomplishments:
 
@@ -117,11 +117,11 @@ Main accomplishments:
     \item Built a new crawling framework, from scratch to production
     \item Fully automated development environment with docker compose
     \item Fully automated dashboard and alert creation on Sysdig Cloud
-    \item Used docker as a development and production tool
-    \item Cluster orchestration at AWS using Kubernetes, CoreOS and Docker
+    \item Cluster orchestration at AWS/Azure using Kubernetes, CoreOS and Docker
     \item Migrating all infrastructure from Codero to AWS
-    \item Migrated a database oriented architecture to a service oriented one
-    \item Migrated the old framework, with more than 200 bots, to the new one
+    \item Later, migrated the infrastructure from AWS to Azure
+    \item Active participation on building the tools to automate infrastructure on Azure
+    \item Aided on the migration of more than 100 crawlers to Kubernetes
     \item Actively participated on the screening and interviews of new candidates for the team
     \item Coached new members
     \item Implemented a real time monitoring for the data production pipeline using StatsD and Sysdig
@@ -255,6 +255,32 @@ Main accomplishments:\\
 
 \pagebreak
 \section{open source projects}
+
+\begin{entrylist}
+\entry
+{2016-now}
+{Nash}
+{\href{https://github.com/NeowayLabs/nash}{https://github.com/NeowayLabs/nash}}
+{
+Nash is a shell language focused on simplicity and having a nicer syntax
+than traditional shells. I use this shell as my interactive shell and it is
+a pet project very close to my heart.
+}
+%------------------------------------------------
+\end{entrylist}
+
+\begin{entrylist}
+\entry
+{2016-now}
+{klb}
+{\href{https://github.com/NeowayLabs/klb}{https://github.com/NeowayLabs/klb}}
+{
+    klb is used to automate infrastructure creation on AWS and Azure.
+    My development involvement is more focused on Azure, specially when
+    we migrated Neoway infrastructure from AWS to Azure.
+}
+%------------------------------------------------
+\end{entrylist}
 
 \begin{entrylist}
 \entry
