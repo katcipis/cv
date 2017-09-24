@@ -96,13 +96,21 @@ Prometheus, Grafana, StatsD, Sysdig
     There was a lot of challenges like:\\
 
 \begin{itemize}
-    \item Scraping the web (Scrapy and Selenium)
+    \item Migrating the entire infrastructure of multiple teams from AWS to Azure
+    \item Migrate 10 databases (MongoDB, Postgres, ElasticSearch, CockroachDB) to Azure
+    \item Provide automated and validated backup for all databases
+    \item Specify and implement a new DSL to develop web spiders
+    \item Create capture API enabling third party web spiders to integrate on our data pipeline
+    \item Scale the ingestion of huge CSV files (terabytes per file)
+    \item Define solutions that crossed multiple teams boundaries
 \end{itemize}
 
 Main accomplishments:
 
 \begin{itemize}
-    \item Technical leadership and coaching for a team of 6 people
+    \item Fully automated infrastructure provisioning at Azure
+    \item Specified and developed generic backup strategy at Azure
+    \item Entire infrastructure access through a bastion host as a security measure
 \end{itemize}
 }
 \end{entrylist}
