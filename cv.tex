@@ -40,7 +40,7 @@
 \section{languages skill}
 English: advanced (reading, writing); intermediate (speaking)
 \section{programming languages}
-C, C++, Go, Python, Lua, Vala, Javascript, Shell, Java
+C, C++, Go, Python, Lua, Nash, Javascript, Shell, Java
 \section{protocols}
 DBus, RTMP, HTTP, SMTP, SIP, RTP, AMQP
 \section{cloud}
@@ -83,35 +83,37 @@ Prometheus, Grafana, StatsD, Sysdig
 \begin{entrylist}
 %------------------------------------------------
 \entry
-{2017--now}
+{2017--2018}
 {Neoway}
 {Florianópolis, Santa Catarina}
 {\emph{Software Developer - Data Platform Team} \\
 
     As a software developer on the data platform team I started to be
-    responsible of a broad context involving multiple teams, building not
-    only services but also tooling to be used by those teams.
+    responsible for a more broad context involving multiple teams, building not
+    only services but also tooling to be used by those teams. \\
     Besides the technical challenges of providing a platform I also performed
-    code reviews and coaching with across multiple teams.
+    code reviews and coaching across multiple teams.
     There was a lot of challenges like:\\
 
 \begin{itemize}
     \item Migrating the entire infrastructure of multiple teams from AWS to Azure
-    \item Migrate 10 databases (MongoDB, Postgres, ElasticSearch, CockroachDB) to Azure
-    \item Provide automated and validated backup for all databases
-    \item Specify and implement a new DSL to develop web spiders
-    \item Create capture API enabling third party web spiders to integrate on our data pipeline
+    \item Defining network topology and security measures
+    \item Creating backups for VMs with different operational systems at Azure
+    \item Specify a new DSL to develop web spiders
     \item Scale the ingestion of huge CSV files (terabytes per file)
-    \item Define solutions that crossed multiple teams boundaries
-    \item Investigate performance problems on services and databases
+    \item Define solutions for infrastructure building that crossed multiple teams boundaries
+    \item Performance problems on Postgres at Azure
 \end{itemize}
 
 Main accomplishments:
 
 \begin{itemize}
     \item Fully automated infrastructure provisioning at Azure
+    \item Easy to build parallel version of the entire infrastructure (including networking and security)
+    \item Development and testing of a library to automate infrastructure building
     \item Specified and developed generic backup strategy at Azure
     \item Entire infrastructure access through a bastion host as a security measure
+    \item New service that allowed arbitrarily huge files to be ingested easily (scaling horizontaly)
 \end{itemize}
 }
 \end{entrylist}
