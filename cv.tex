@@ -497,17 +497,7 @@ Main accomplishments:\\
 }
 %------------------------------------------------
 \end{entrylist}
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
+\pagebreak
 
 \section{presentations}
 
@@ -531,14 +521,69 @@ Presentation source be found \href{https://github.com/katcipis/my.presentations/
 %------------------------------------------------
 \end{entrylist}
 
+%------------------------------------------------
+\begin{entrylist}
+\entry
+{2016}
+{Building Resilient Services in Go}
+{\href{https://2016.gopherconbr.org/en/}{GopherCon Brazil}}
+{
+
+Resilience is not about never failing, but how do you recover from it.
+How you can prevent your services from locking down or exhausting all its resources ?
+How to perform graceful service degradation ? Can this kind of behaviour be tested properly ?\\
+
+On Go we have some new features, like Contexts, that helps us to model timeouts and cancellation properly.\\
+
+They can be combined with other useful features as select and channels to model timeouts and resource pools,
+which can be essential to provide proper service degradation instead of total failure of the system.\\
+
+On this talk I try to answer this questions using new features available on Go 1.7, direct from production ready software.\\
+
+Presentation source be found \href{https://github.com/katcipis/my.presentations/tree/master/resilient-services-in-go}{here}.
+
+}
+%------------------------------------------------
+\end{entrylist}
+
+%------------------------------------------------
+\begin{entrylist}
+\entry
+{2016}
+{Real Life Kubernetes}
+{\href{http://www.thedevelopersconference.com.br/tdc/2016/florianopolis/trilha-devops}{The Developers Conference}}
+{
+
+On this presentation we will give a short introduction on Kubernetes and show the experience of learning
+and using Kubernetes on production for two very distinct systems.\\
+
+The first one is a data acquisition system, involving running multiple instance of crawlers,
+storage services, captcha breaking services, message brokers (like RabbitMQ) and database integration outside the cluster.\\
+
+The second one is a web application, involving network analysis using graphs with the ultimate goal of fraud prevention.
+The application is strongly bounded with the microservices architecture and the twelve factor app.\\
+
+Graph and document databases, cache layers, a message broker and a distributed filesystem are some of
+the technologies surrounding the application ecosystem.\\
+
+Also making a great case of integration between AWS and k8s using tools such as autoscaling.\\
+
+Presentation source be found \href{https://github.com/katcipis/my.presentations/tree/master/real-life-kubernetes}{here}.
+
+}
+%------------------------------------------------
+\end{entrylist}
+
+\pagebreak
+
 %----------------------------------------------------------------------------------------
 %	INTERESTS SECTION
 %----------------------------------------------------------------------------------------
 
 \section{interests}
 
-\textbf{professional:} distributed systems, cloud computing, test driven development, agile development, software engineering, software architecture, networks, plan9, linux, open source, metaprogramming, artificial intelligence, image processing, dsp, functional programming, embedded systems
+\textbf{professional:} distributed systems, cloud computing, test driven development, software engineering, software architecture, networks, plan9, linux, open source, artificial intelligence, image processing, dsp, functional programming, embedded systems
 
-\textbf{books:} The Pragmatic Programmer, Pragmatic Thinking \& Learning, Test Driven Development for Embedded C, REST in Practice, Refactoring: Improving the Design of Existing Code.
+\textbf{books:} The Idea Factory, The Practice of Programming, Hackers: Heroes Of The Computer Revolution, The Pragmatic Programmer, Pragmatic Thinking \& Learning, Test Driven Development for Embedded C, REST in Practice, Refactoring: Improving the Design of Existing Code.
 
 \end{document}
