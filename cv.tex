@@ -40,7 +40,7 @@
 \section{languages skill}
 English: advanced (reading, writing); intermediate (speaking)
 \section{programming languages}
-C, C++, Go, Python, Lua, Vala, Javascript, Shell, Java
+C, C++, Go, Python, Lua, Nash, Javascript, Shell, Java
 \section{protocols}
 DBus, RTMP, HTTP, SMTP, SIP, RTP, AMQP
 \section{cloud}
@@ -83,35 +83,70 @@ Prometheus, Grafana, StatsD, Sysdig
 \begin{entrylist}
 %------------------------------------------------
 \entry
-{2017--now}
+{2018--now}
+{Neoway}
+{Florianópolis, Santa Catarina}
+{\emph{Software Developer - Lambda Team} \\
+
+    As a software developer on the lambda team I was responsible for researching
+    and developing new captcha solvers (audio and image). Solving audio captchas involved
+    studying and applying the following algorithms and tools:
+
+\begin{itemize}
+    \item Noise removal using sox
+    \item Audio segmentation by silence using sox
+    \item Extracting features (MFCC) from segmented audio
+    \item Normalize extracted features with rescaling
+    \item Train SVM model
+    \item Recognize characters using trained SVM model
+\end{itemize}
+
+Main accomplishments:\\
+
+\begin{itemize}
+	\item Development of tool to measure assertiveness of captcha solving services
+    \item Solved audio captcha with 80% of assertiveness
+\end{itemize}
+
+
+}
+\end{entrylist}
+
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2017--2018}
 {Neoway}
 {Florianópolis, Santa Catarina}
 {\emph{Software Developer - Data Platform Team} \\
 
     As a software developer on the data platform team I started to be
-    responsible of a broad context involving multiple teams, building not
-    only services but also tooling to be used by those teams.
+    responsible for a more broad context involving multiple teams, building not
+    only services but also tooling to be used by those teams. \\
     Besides the technical challenges of providing a platform I also performed
-    code reviews and coaching with across multiple teams.
+    code reviews and coaching across multiple teams.
     There was a lot of challenges like:\\
 
 \begin{itemize}
     \item Migrating the entire infrastructure of multiple teams from AWS to Azure
-    \item Migrate 10 databases (MongoDB, Postgres, ElasticSearch, CockroachDB) to Azure
-    \item Provide automated and validated backup for all databases
-    \item Specify and implement a new DSL to develop web spiders
-    \item Create capture API enabling third party web spiders to integrate on our data pipeline
+    \item Defining network topology and security measures
+    \item Creating backups for VMs with different operational systems at Azure
+    \item Specify a new DSL to develop web spiders
     \item Scale the ingestion of huge CSV files (terabytes per file)
-    \item Define solutions that crossed multiple teams boundaries
-    \item Investigate performance problems on services and databases
+    \item Define solutions for infrastructure building that crossed multiple teams boundaries
+    \item Performance problems on Postgres at Azure
 \end{itemize}
 
 Main accomplishments:
 
 \begin{itemize}
     \item Fully automated infrastructure provisioning at Azure
+    \item Easy to build parallel version of the entire infrastructure (including networking and security)
+    \item Development and testing of a library to automate infrastructure building
     \item Specified and developed generic backup strategy at Azure
     \item Entire infrastructure access through a bastion host as a security measure
+    \item New service that allowed arbitrarily huge files to be ingested easily (scaling horizontaly)
 \end{itemize}
 }
 \end{entrylist}
@@ -462,6 +497,84 @@ Main accomplishments:\\
 }
 %------------------------------------------------
 \end{entrylist}
+\pagebreak
+
+\section{presentations}
+
+%------------------------------------------------
+\begin{entrylist}
+\entry
+{2018}
+{Object Orientation in Go}
+{\href{http://www.thedevelopersconference.com.br/tdc/2018/florianopolis/trilha-golang}{The Developers Conference}}
+{
+
+For people that come from a background on Java or other classic object oriented languages
+(like C++) there is also some discussion on if Go is actually object oriented.
+
+In this presentation I try to present Go as a language that is more object oriented than these
+classic languages, at least according to the original foundations of object orientation.
+
+Presentation source can be found \href{https://github.com/katcipis/my.presentations/blob/master/gooo/gooo.slide}{here}.
+
+}
+%------------------------------------------------
+\end{entrylist}
+
+%------------------------------------------------
+\begin{entrylist}
+\entry
+{2016}
+{Building Resilient Services in Go}
+{\href{https://2016.gopherconbr.org/en/}{GopherCon Brazil}}
+{
+
+Resilience is not about never failing, but how do you recover from it.
+How can you prevent your services from locking down or exhausting all its resources ?
+How to perform graceful service degradation ? Can this kind of behaviour be tested properly ?\\
+
+On Go we have some new features, like Contexts, that helps us to model timeouts and cancellation properly.\\
+
+They can be combined with other useful features as select and channels to model timeouts and resource pools,
+which can be essential to provide proper service degradation instead of total failure of the system.\\
+
+On this talk I try to answer this questions using new features available on Go 1.7, direct from production ready software.\\
+
+Presentation source can be found \href{https://github.com/katcipis/my.presentations/tree/master/resilient-services-in-go}{here}.
+
+}
+%------------------------------------------------
+\end{entrylist}
+
+%------------------------------------------------
+\begin{entrylist}
+\entry
+{2016}
+{Real Life Kubernetes}
+{\href{http://www.thedevelopersconference.com.br/tdc/2016/florianopolis/trilha-devops}{The Developers Conference}}
+{
+
+On this presentation we will give a short introduction on Kubernetes and show the experience of learning
+and using Kubernetes on production for two very distinct systems.\\
+
+The first one is a data acquisition system, involving running multiple instances of different crawlers,
+storage services, captcha breaking services, message brokers (like RabbitMQ) and database integration outside the cluster.\\
+
+The second one is a web application, involving network analysis using graphs with the ultimate goal of fraud prevention.
+The application is strongly bounded with the microservices architecture and the twelve factor app.\\
+
+Graph and document databases, cache layers, a message broker and a distributed filesystem are some of
+the technologies surrounding the application ecosystem.\\
+
+Also making a great case of integration between AWS and k8s using tools such as autoscaling.\\
+
+Presentation source can be found \href{https://github.com/katcipis/my.presentations/tree/master/real-life-kubernetes}{here}.
+
+}
+%------------------------------------------------
+\end{entrylist}
+
+\pagebreak
 
 %----------------------------------------------------------------------------------------
 %	INTERESTS SECTION
@@ -469,8 +582,8 @@ Main accomplishments:\\
 
 \section{interests}
 
-\textbf{professional:} web services, cloud computing, test driven development, agile development, software engineering, software architecture, networks, linux, open source, metaprogramming, artificial intelligence, image processing, functional programming, embedded systems
+\textbf{professional:} distributed systems, cloud computing, test driven development, software engineering, software architecture, networks, plan9, linux, open source, artificial intelligence, image processing, dsp, functional programming, embedded systems
 
-\textbf{books:} The Pragmatic Programmer, Pragmatic Thinking \& Learning, Test Driven Development for Embedded C, REST in Practice, Refactoring: Improving the Design of Existing Code.
+\textbf{books:} The Idea Factory, The Practice of Programming, Hackers: Heroes Of The Computer Revolution, The Pragmatic Programmer, Pragmatic Thinking \& Learning, Test Driven Development for Embedded C, REST in Practice, Refactoring: Improving the Design of Existing Code.
 
 \end{document}
