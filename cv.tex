@@ -23,7 +23,7 @@
 
 \begin{document}
 
-\header{tiago}{katcipis}{software developer} % Your name and current job title/field
+\header{tiago}{katcipis}{software engineer} % Your name and current job title/field
 
 %----------------------------------------------------------------------------------------
 %	SIDEBAR SECTION
@@ -40,15 +40,15 @@
 \section{languages skill}
 English: advanced (reading, writing); intermediate (speaking)
 \section{programming languages}
-C, C++, Go, Python, Lua, Nash, Javascript, Bash, Java
+C, C++, Go, Python, Lua, Nash, Bash, Javascript
 \section{protocols}
-DBus, RTMP, HTTP, SMTP, SIP, RTP, AMQP
+DBus, RTMP, HTTP, SIP, RTP, AMQP
 \section{cloud}
 Kubernetes, AWS, Azure, Docker, CoreOS, Terraform
 \section{documentation}
 Gtk-Doc, Doxygen, Docbook, LDoc, LaTeX, Docco
 \section{automation}
-Ansible, Make, Grunt
+Ansible, Make
 \section{dev environment}
 Vagrant, Docker Compose
 \section{monitoring}
@@ -81,14 +81,15 @@ Prometheus, Grafana, StatsD, Sysdig
 \begin{entrylist}
 %------------------------------------------------
 \entry
-{2018--now}
+{2018--2019}
 {Neoway}
 {Florianópolis, Santa Catarina}
-{\emph{Software Developer - Lambda Team} \\
+{\emph{Software Engineer - Lambda Team} \\
 
-    As a software developer on the lambda team I was responsible for researching
-    and developing new captcha solvers (audio and image). Solving audio captchas involved
-    studying and applying the following algorithms and tools:
+    As a software engineer on the lambda team I was responsible for researching
+    and developing new captcha solvers (audio and image).
+    Solving audio captchas involved studying and applying the following
+    algorithms and tools:
 
 \begin{itemize}
     \item Noise removal using sox
@@ -97,6 +98,7 @@ Prometheus, Grafana, StatsD, Sysdig
     \item Normalize extracted features with rescaling
     \item Train SVM model
     \item Recognize characters using trained SVM model
+    \item Label image captchas using TensorFlow
 \end{itemize}
 
 Main accomplishments:\\
@@ -104,6 +106,8 @@ Main accomplishments:\\
 \begin{itemize}
     \item Development of tool to measure assertiveness of captcha solving services
     \item Solved audio captcha with 80\% of assertiveness
+    \item Solved image captcha with 40\% assertiveness using TensorFlow
+    \item Tooling to automate dataset and trained models upload at Azure BlobFS
 \end{itemize}
 
 
@@ -117,7 +121,7 @@ Main accomplishments:\\
 {2017--2018}
 {Neoway}
 {Florianópolis, Santa Catarina}
-{\emph{Software Developer - Data Platform Team} \\
+{\emph{Software Engineer - Data Platform Team} \\
 
     As a software developer on the data platform team I started to be
     responsible for a more broad context involving multiple teams, building not
@@ -130,10 +134,9 @@ Main accomplishments:\\
     \item Migrating the entire infrastructure of multiple teams from AWS to Azure
     \item Defining network topology and security measures
     \item Creating backups for VMs with different operational systems at Azure
-    \item Specify a new DSL to develop web spiders
+    \item Specify a new DSL to develop web scrappers
     \item Scale the ingestion of huge CSV files (terabytes per file)
     \item Define solutions for infrastructure building that crossed multiple teams boundaries
-    \item Performance problems on Postgres at Azure
 \end{itemize}
 
 Main accomplishments:
@@ -155,7 +158,7 @@ Main accomplishments:
 {2015--2017}
 {Neoway}
 {Florianópolis, Santa Catarina}
-{\emph{Software Developer - Data Capture Team} \\
+{\emph{Software Engineer - Data Capture Team} \\
 
     Technical lead of the team responsible for capturing data from the web and publishing it to the entire company,
 which involved solving hard problems as:\\
@@ -323,6 +326,20 @@ Main accomplishments:\\
 
 \pagebreak
 \section{open source projects}
+
+
+\begin{entrylist}
+\entry
+{2018-now}
+{Abad}
+{\href{https://github.com/NeowayLabs/abad}{https://github.com/NeowayLabs/abad}}
+{
+Abad is a Javascript interpreter (subset of the language) aimed at reverse
+engineering, being as simple as possible and enabling steeping and manipulating
+the execution environment.
+}
+%------------------------------------------------
+\end{entrylist}
 
 \begin{entrylist}
 \entry
