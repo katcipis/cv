@@ -86,32 +86,43 @@ Prometheus, Grafana, StatsD, Sysdig
 {Florianópolis, Santa Catarina}
 {\emph{Software Engineer - Data Platform Team} \\
 
-    As a software developer on the data platform team I started to be
-    responsible for a more broad context involving multiple teams, building not
-    only services but also tooling to be used by those teams. \\
-    Besides the technical challenges of providing a platform I also performed
-    code reviews and coaching across multiple teams.
-    There was a lot of challenges like:\\
+The first problem to solve was the migration
+of the entire data platform (capture, transformation
+and storage of data) from AWS to Azure. The new platform
+at Azure needed to be fully automated to the point
+that building the entire platform required only one
+command with parameters that allowed the automated build
+of staging environments.\\
 
-\begin{itemize}
-    \item Migrating the entire infrastructure of multiple teams from AWS to Azure
-    \item Defining network topology and security measures
-    \item Creating backups for VMs with different operational systems at Azure
-    \item Specify a new DSL to develop web scrappers
-    \item Scale the ingestion of huge CSV files (terabytes per file)
-    \item Define solutions for infrastructure building that crossed multiple teams boundaries
-\end{itemize}
+We also needed to improve security
+which was done using a bastion server. All this was developed
+using an open source project developed at Neoway to deploy
+infrastructure at Azure called
+{\href{https://github.com/NeowayLabs/klb}{klb}} which is
+developed in Nash. The final
+tooling isolated the user from all this choices using docker
+and provided a CLI. The final solution was used to build
+multiple copies of the entire infrastructure (with different
+sizing) and was used by multiple teams.\\
 
-Main accomplishments:
+In the sequence we had some problems with captchas that
+required us to solve audio captchas, something that had not
+been done before at Neoway (we had infrastructure for image ones).
+Doing that involved some researching
+on current techniques and culminated on a service capable
+of solving a specific audio captcha with 80\% of assertiveness.\\
 
-\begin{itemize}
-    \item Fully automated infrastructure provisioning at Azure
-    \item Easy to build parallel version of the entire infrastructure (including networking and security)
-    \item Development and testing of a library to automate infrastructure building
-    \item Specified and developed generic backup strategy at Azure
-    \item Entire infrastructure access through a bastion host as a security measure
-    \item New service that allowed arbitrarily huge files to be ingested easily (scaling horizontaly)
-\end{itemize}
+The creation of this service involved the integration of different
+tools and techniques, like sox to remove noise and segment audios,
+MFC (Mel-Frequency Cepstrum) to extract features from the audio
+and SVM to train models. This service was developed in Go with
+integration with externals tools and one developed in Python
+(the feature extractor).\\
+
+I also developed a tool to generate load and evaluate the
+assertiveness of captcha services in a generic way
+(both image and audio ones).
+
 }
 \end{entrylist}
 
