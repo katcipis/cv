@@ -158,46 +158,47 @@ Main accomplishments:
 {2015--2017}
 {Neoway}
 {Florianópolis, Santa Catarina}
-{\emph{Software Engineer - Data Capture Team} \\
+{\emph{Lead Software Engineer - Data Capture Team} \\
 
-    Technical lead of the team responsible for capturing data from the web and publishing it to the entire company,
-which involved solving hard problems as:\\
+My main job was to lead the development of a new
+data capture architecture that would scale better than
+the current one, both in performance as in development
+effort required to develop new web scrappers and maintain
+the current ones. \\
 
-\begin{itemize}
-    \item Scraping the web (Scrapy and Selenium)
-    \item Parsing data from multiple formats (HTML, PDF, SWF)
-    \item Maintaining all downloaded raw data at S3
-    \item Defining and documenting good protocols for proper service integration
-    \item Developing services on different languages, like Go and Python
-    \item Migrating the whole data pipeline to a new service oriented architecture
-    \item Coach the team on good test techniques for the new architecture
-    \item Developed new services to provide good proxies and captcha breaking
-\end{itemize}
+The work started by substituting the current web scrapper
+language (a XML) with Python using the Scrappy framework.
+This enabled us to tackle new challenges like parsing
+PDF or other complex binary formats (the legacy XML based
+scrapper lacked this capability). Another small Python
+framework was also developed to aid the development of scrappers
+that used Selenium when required. Both frameworks generated
+metrics using the StatsD protocol. \\
 
-Besides the technical challenges I also helped the team to apply some
-development practices, like TDD (Test Driven Development),code review
-and continuous integration.
-Together we built a DevOps culture to enable infrastructure as code
-on our team, we where responsible for the whole solution, from the development
-to testing and deployment (including monitoring the production system).\\
+The next step was to extract logic that resided on the legacy
+web scrapper engine into separate services,
+like proxy, captcha, and raw storage services.
+These services where developed in
+Go and exported metrics using the StatsD protocol. Another service
+was also developed to integrate the new web scrappers into the
+old data pipeline (while the new one was being developed by
+another team).\\
 
-Main accomplishments:
+Efforts were made to build an automated development environment
+that enabled developers to build and debug web scrappers
+in isolation of each other. To do this we used Docker and docker-compose.
+The deployment and scheduling of web scrappers was solved using
+Kubernetes on top of CoreOS at AWS and later at Azure. \\
 
-\begin{itemize}
-    \item Technical leadership and coaching for a team of 6 people
-    \item Built a new crawling framework, from scratch to production
-    \item Fully automated development environment with docker compose
-    \item Fully automated dashboard and alert creation on Sysdig Cloud
-    \item Cluster orchestration at AWS/Azure using Kubernetes, CoreOS and Docker
-    \item Migrating all infrastructure from Codero to AWS
-    \item Later, migrated the infrastructure from AWS to Azure
-    \item Active participation on building the tools to automate infrastructure on Azure
-    \item Aided on the migration of more than 100 crawlers to Kubernetes
-    \item Actively participated on the screening and interviews of new candidates for the team
-    \item Coached new members
-    \item Implemented a real time monitoring for the data production pipeline using StatsD and Sysdig
-    \item Gave talks inside the company and on events like TDC (The Developers Conference) and GopherCon
-\end{itemize}
+On top of that I was coaching the team on this new architecture
+and how to develop the web scrappers in Python, including the
+use of automated tests and code reviews to improve the quality
+of the web scrappers, solving some serious issues with bad
+quality on the captured data. The team was responsible for all
+the development, from coding to deployment, including maintaning
+the Kubernetes cluster healthy. For monitoring we used Sysdig.
+I also participated on the screening and hiring process of new
+candidates for the team.
 }
 \end{entrylist}
 
