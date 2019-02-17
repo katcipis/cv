@@ -40,7 +40,7 @@
 \section{languages skill}
 English: advanced (reading, writing); intermediate (speaking)
 \section{programming languages}
-C, C++, Go, Python, Lua, Nash, Bash, Javascript
+Go, C, C++, Python, Lua, Nash, Bash, Javascript
 \section{protocols}
 DBus, RTMP, HTTP, SIP, RTP, AMQP
 \section{cloud}
@@ -209,8 +209,8 @@ Main accomplishments:
 {Florianópolis, Santa Catarina}
 {\emph{Lead Software Engineer} \\
 
-Worked on a VoIP phone with touchscreen
-developing in a very strict environment
+Worked on the development of a VoIP phone with touchscreen
+in a very strict environment
 (a Blackfin DSP processor with no MMU and 64MB of RAM).
 The project was built from scratch in C and used
 DBus to integrate different processes. This project involved
@@ -222,10 +222,30 @@ very specific tools. This build of this development environment
 was done using Vagrant and Ansible. \\
 
 Some refined functions on the VoIP phone required integration
-with the our PBX, to solve that problem we developed a PBX
+with our PBX that used a rather complex proprietary protocol.
+To solve the integration problem we developed a PBX
 REST service in Lua that integrated with the current legacy
-protocols.\\
+protocols exposing them in a more web friendly way. This service
+was implemented in Lua. \\
 
+My last project at Dígitro was a solution to web audio playback
+with very specific audio effects (like silence removal,
+change in pitch) that had to be developed using HTML5.
+It was the rewrite of an old system that worked using Flash.
+Some of the components of the old project, like Gstreamer
+plugins, were reused, but the service itself had to be rewriten
+using REST and HTTP to do the media streaming (and control).
+This was developed in Javascript (NodeJS) integrating with the
+C code for streaming using IPC (Inter Process Communication).
+The original audio files where encoded in IMA ADPCM and another
+proprietary CODEC and were exported through SFTP. Part of the
+problem was also integrating with this legacy infrastructure and
+transcode it to a more web friendly format. \\
+
+During these projects I always practiced and advocated TDD
+(even on embedded systems in C) and helped people on
+the team to write automated tests for their code. I also
+coached two new members in the team.
 }
 \end{entrylist}
 
