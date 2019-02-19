@@ -31,22 +31,19 @@
 
 \begin{aside} % In the aside, each new line forces a line break
 \section{contact}
-+(55)(48)991060132
-~
++383498590291
 \href{mailto:tiagokatcipis@gmail.com}{tiagokatcipis@gmail.com}
 \href{https://github.com/katcipis}{GitHub}
 \href{http://www.linkedin.com/pub/tiago-katcipis/1b/273/8b0}{LinkedIn}
 \href{http://katcipis.github.io/}{Blog}
 \section{languages skill}
-English: advanced (reading, writing); intermediate (speaking)
+English: advanced
 \section{programming languages}
-C, C++, Go, Python, Lua, Nash, Bash, Javascript
+Go, C, C++, Python, Lua, Nash, Bash, Javascript
 \section{protocols}
 DBus, RTMP, HTTP, SIP, RTP, AMQP
 \section{cloud}
-Kubernetes, AWS, Azure, Docker, CoreOS, Terraform
-\section{documentation}
-Gtk-Doc, Doxygen, Docbook, LDoc, LaTeX, Docco
+Kubernetes, AWS, Azure, Google Cloud, Docker, CoreOS, Terraform
 \section{automation}
 Ansible, Make
 \section{dev environment}
@@ -81,74 +78,53 @@ Prometheus, Grafana, StatsD, Sysdig
 \begin{entrylist}
 %------------------------------------------------
 \entry
-{2018--2019}
-{Neoway}
-{Florianópolis, Santa Catarina}
-{\emph{Software Engineer - Lambda Team} \\
-
-    As a software engineer on the lambda team I was responsible for researching
-    and developing new captcha solvers (audio and image).
-    Solving audio captchas involved studying and applying the following
-    algorithms and tools:
-
-\begin{itemize}
-    \item Noise removal using sox
-    \item Audio segmentation by silence using sox
-    \item Extracting features (MFCC) from segmented audio
-    \item Normalize extracted features with rescaling
-    \item Train SVM model
-    \item Recognize characters using trained SVM model
-    \item Label image captchas using TensorFlow
-\end{itemize}
-
-Main accomplishments:\\
-
-\begin{itemize}
-    \item Development of tool to measure assertiveness of captcha solving services
-    \item Solved audio captcha with 80\% of assertiveness
-    \item Solved image captcha with 40\% assertiveness using TensorFlow
-    \item Tooling to automate dataset and trained models upload at Azure BlobFS
-\end{itemize}
-
-
-}
-\end{entrylist}
-
-
-\begin{entrylist}
-%------------------------------------------------
-\entry
-{2017--2018}
+{2017--now}
 {Neoway}
 {Florianópolis, Santa Catarina}
 {\emph{Software Engineer - Data Platform Team} \\
 
-    As a software developer on the data platform team I started to be
-    responsible for a more broad context involving multiple teams, building not
-    only services but also tooling to be used by those teams. \\
-    Besides the technical challenges of providing a platform I also performed
-    code reviews and coaching across multiple teams.
-    There was a lot of challenges like:\\
+The first problem to solve was the migration
+of the entire data platform (capture, transformation
+and storage of data) from AWS to Azure. The new platform
+at Azure needed to be fully automated to the point
+that building the entire platform required only one
+command and enabled the automated build
+of staging environments.\\
 
-\begin{itemize}
-    \item Migrating the entire infrastructure of multiple teams from AWS to Azure
-    \item Defining network topology and security measures
-    \item Creating backups for VMs with different operational systems at Azure
-    \item Specify a new DSL to develop web scrappers
-    \item Scale the ingestion of huge CSV files (terabytes per file)
-    \item Define solutions for infrastructure building that crossed multiple teams boundaries
-\end{itemize}
+We also needed to improve security
+which was done using a bastion server. All this was developed
+using an open source project developed at Neoway to deploy
+infrastructure at Azure called
+{\href{https://github.com/NeowayLabs/klb}{klb}} which is
+developed in Nash. The final
+tooling isolated the user from all this choices using docker
+and provided a CLI. In the end we were able to build
+multiple copies of the entire infrastructure (with different
+sizing) and this was used by multiple teams to deploy
+their infrastructure at Azure.\\
 
-Main accomplishments:
+In the sequence we had some problems with captchas that
+required us to solve audio captchas, something that had not
+been done before at Neoway (we had infrastructure for image ones).
+Doing that involved some researching
+on current techniques and culminated on a service capable
+of solving a specific audio captcha with 80\% of assertiveness.\\
 
-\begin{itemize}
-    \item Fully automated infrastructure provisioning at Azure
-    \item Easy to build parallel version of the entire infrastructure (including networking and security)
-    \item Development and testing of a library to automate infrastructure building
-    \item Specified and developed generic backup strategy at Azure
-    \item Entire infrastructure access through a bastion host as a security measure
-    \item New service that allowed arbitrarily huge files to be ingested easily (scaling horizontaly)
-\end{itemize}
+The creation of this service involved the integration of different
+tools and techniques, like sox to remove noise and segment audios,
+MFC (Mel-Frequency Cepstrum) to extract features from the audio
+and SVM to train models. This service was developed in Go with
+integration with externals tools and one developed in Python
+(the feature extractor).\\
+
+I also developed a tool (also Go) to generate load and evaluate the
+assertiveness of captcha services in a generic way
+(both image and audio ones). This tool required multiplexing
+of results coming from multiple different goroutines and an
+{\href{https://github.com/madlambda/spells}{open source library}}
+was developed to help solve that problem. The docs for the multiplexer
+can be found {\href{https://godoc.org/github.com/madlambda/spells}{here}}.
+
 }
 \end{entrylist}
 
@@ -158,46 +134,53 @@ Main accomplishments:
 {2015--2017}
 {Neoway}
 {Florianópolis, Santa Catarina}
-{\emph{Software Engineer - Data Capture Team} \\
+{\emph{Lead Software Engineer - Data Capture Team} \\
 
-    Technical lead of the team responsible for capturing data from the web and publishing it to the entire company,
-which involved solving hard problems as:\\
+My main job was to lead the development of a new
+data capture architecture that would scale better than
+the current one, both in performance as in development
+effort required to develop new web scrappers and maintain
+the current ones. \\
 
-\begin{itemize}
-    \item Scraping the web (Scrapy and Selenium)
-    \item Parsing data from multiple formats (HTML, PDF, SWF)
-    \item Maintaining all downloaded raw data at S3
-    \item Defining and documenting good protocols for proper service integration
-    \item Developing services on different languages, like Go and Python
-    \item Migrating the whole data pipeline to a new service oriented architecture
-    \item Coach the team on good test techniques for the new architecture
-    \item Developed new services to provide good proxies and captcha breaking
-\end{itemize}
+The work started by substituting the current web scrapper
+language (a XML) with Python using the Scrappy framework.
+This enabled us to tackle new challenges like parsing
+PDF or other complex binary formats (the legacy XML based
+scrapper lacked this capability). Another small Python
+framework was also developed to aid the development of scrappers
+that used Selenium when required. Both frameworks generated
+metrics using the StatsD protocol. \\
 
-Besides the technical challenges I also helped the team to apply some
-development practices, like TDD (Test Driven Development),code review
-and continuous integration.
-Together we built a DevOps culture to enable infrastructure as code
-on our team, we where responsible for the whole solution, from the development
-to testing and deployment (including monitoring the production system).\\
+The next step was to extract logic that resided on the legacy
+web scrapper engine into separate services,
+like proxy, captcha, and raw storage services.
+These services where developed in
+Go and exported metrics using the StatsD protocol. Another service
+was also developed to integrate the new web scrappers into the
+old data pipeline (while the new data pipeline was being developed by
+another team). This experience involved a lot of designing and
+coding in Go and Python and also brainstorming with other teams
+on how to define protocols integrating the data pipeline.\\
 
-Main accomplishments:
+Efforts were made to build an automated development environment
+that enabled developers to build and debug web scrappers
+in isolation of each other. To do this we used Docker and docker-compose.
+The deployment and scheduling of web scrappers was solved using
+Kubernetes on top of CoreOS at AWS and later at Azure. Kubernetes
+was essential since each web scrapper is handled as a independent
+unit of deploy and we had more than 200 of them (and also the services).\\
 
-\begin{itemize}
-    \item Technical leadership and coaching for a team of 6 people
-    \item Built a new crawling framework, from scratch to production
-    \item Fully automated development environment with docker compose
-    \item Fully automated dashboard and alert creation on Sysdig Cloud
-    \item Cluster orchestration at AWS/Azure using Kubernetes, CoreOS and Docker
-    \item Migrating all infrastructure from Codero to AWS
-    \item Later, migrated the infrastructure from AWS to Azure
-    \item Active participation on building the tools to automate infrastructure on Azure
-    \item Aided on the migration of more than 100 crawlers to Kubernetes
-    \item Actively participated on the screening and interviews of new candidates for the team
-    \item Coached new members
-    \item Implemented a real time monitoring for the data production pipeline using StatsD and Sysdig
-    \item Gave talks inside the company and on events like TDC (The Developers Conference) and GopherCon
-\end{itemize}
+On top of that I was coaching the team on this new architecture
+and how to develop the web scrappers in Python, including the
+use of automated tests, code reviews and continuous integration
+to improve the quality of the web scrappers, solving some serious
+issues with bad quality on the captured data.\\
+
+The team was responsible for everything, from coding
+to deployment and operations, including maintaining
+the Kubernetes cluster healthy. For monitoring we used Sysdig.
+I also participated on the screening and hiring process of new
+candidates for the team.
 }
 \end{entrylist}
 
@@ -207,38 +190,45 @@ Main accomplishments:
 {2012--2015}
 {Dígitro}
 {Florianópolis, Santa Catarina}
-{\emph{Systems Analyst} \\
+{\emph{Lead Software Engineer} \\
 
-Technical lead of the team, helping on design, implementation and testing of new and legacy software.\\
+Worked on the development of a VoIP phone with touchscreen
+in a very strict environment
+(a Blackfin DSP processor with no MMU and 64MB of RAM).
+The project was built from scratch in C and used
+DBus to integrate different processes. This project involved
+learning considerably about SIP and VoIP state machines
+and also memory issues because of the lack of an MMU, like
+external memory fragmentation. The development environment
+was rather complex and involved cross compilation with
+very specific tools. This build of this development environment
+was done using Vagrant and Ansible. \\
 
-Development of a REST service responsible for audio streaming and audio metadata extraction.\\
+Some refined functions on the VoIP phone required integration
+with our PBX that used a rather complex proprietary protocol.
+To solve the integration problem we developed a PBX
+REST service in Lua that integrated with the current legacy
+protocols exposing them in a more web friendly way. This service
+was implemented in Lua. \\
 
-Helping the team to apply agile development practices, like TDD, self organization and continuous integration.\\
+My last project at Dígitro was a solution to web audio playback
+with very specific audio effects (like silence removal,
+change in pitch, DTMF/Fax detection) that had to be developed using HTML5.
+It was the rewrite of an old system that worked using Flash.
+Some of the components of the old project, like Gstreamer
+plugins, were reused, but the service itself had to be rewriten
+using REST and HTTP to do the media streaming (and control).
+This was developed in Javascript (NodeJS) integrating with the
+C code for streaming using IPC (Inter Process Communication).
+The original audio files where encoded in IMA ADPCM and another
+proprietary CODEC and were exported through SFTP. Part of the
+problem was also integrating with this legacy infrastructure and
+transcode it to a more web friendly format. \\
 
-Evangelizing the adoption of the DevOps culture to enable infrastructure as code on the entire organization.\\
-
-Helped on the adoption of new technologies like NodeJS, defining good practices and the tool set.\\
-
-Coaching new members on the team.\\
-
-Main accomplishments:\\
-
-\begin{itemize}
-\item Defining the architecture and contract of a REST service from scratch.
-\item Implementing a REST service with TDD.
-\item Acquired knowledge with NodeJS, Express, Mocha, Istanbul, JSHint, Grunt.
-\item Integration of a NodeJS server with multiple child processes.
-\item Developing GStreamer plugins with TDD.
-\item Constructed development environments with Vagrant.
-\item Orchestration with Ansible.
-\item Performed presentations to disseminate the idea of distributed/automated development environments.
-\item Coaching the use of TDD on the team.
-\item Helping the team to introduce automated tests on legacy code.
-\item Coached two new members on the team.
-\item Usage of CRC cards to design systems.
-\item Contributing on the migration process from svn to git.
-\item Experience integrating heterogeneous systems.
-\end{itemize}
+During these projects I always practiced and advocated TDD
+(even on embedded systems in C) and helped people on
+the team to write automated tests for their code. I also
+coached two new members in the team.
 }
 \end{entrylist}
 
@@ -248,33 +238,32 @@ Main accomplishments:\\
 {2010--2012}
 {Dígitro}
 {Florianópolis, Santa Catarina}
-{\emph{Programmer} \\
+{\emph{Software Engineer} \\
 
-Development of a VoIP phone microservices, participating actively on the design and
-architecture of the solutions.\\
+I started working on a solution to web audio playback
+with very specific audio effects (like silence removal,
+change in pitch) that had to be developed using Flash.
+To solve that problem I worked with
+two different open source C++ projects that did reverse
+engineering of the RTMP protocol to develop our own
+Flash Media Server. I worked directly with the integration
+of the server playback logic with Gstreamer and the plugins
+that enabled the desired effects on playback. \\
 
-Some of the services include:\\
-\begin{itemize}
-\item Audio streaming with RTMP.
-\item Voice biometrics.
-\item Word searching on audio.
-\item REST interface for a PBX.\\
-\end{itemize}
+The next project was a solution to biometric identification.
+This has been solved by building a service around a third party
+C library that built and scored voice models.
+I developed a REST service in Lua that integrated with C code
+that built the voice models and used MongoDB to store the
+voice models and perform searches on the database. \\
 
-Main accomplishments:\\
+Then I developed a service to perform searches for specific
+words in audio files. The service would replace a old one so
+it had to implement the same textual/proprietary stateful protocol
+of the old one. The service itself was implemented in Lua
+with bindings to C code that did the actual search of
+words. \\
 
-\begin{itemize}
-\item Acquired knowledge on interprocess communication using DBus.
-\item Object orientation in C.
-\item TDD on embedded C.
-\item Development of VoIP applications.
-\item Embedding Lua code on C.
-\item Defining the API and architecture of web services and middlewares.
-\item Embedded developing on blackfin platform, using uCLinux and UBoot.
-\item Continuous integration using Jenkins.
-\item Experience with document oriented databases.
-\item Database replication with MongoDB.\\
-\end{itemize}
 }
 \end{entrylist}
 %------------------------------------------------
@@ -285,17 +274,18 @@ Main accomplishments:\\
 {Florianópolis, Santa Catarina}
 {\emph{Trainee} \\
 
-Developing cross platform applications (Windows and Linux) for audio streaming.
-Development of a prototype for a voice biometrics system.
+I started helping in the development of an
+cross platform (Windows and Linux) audio streaming
+library for a VoIP softphone, aiming at porting
+the current application that was Windows only to Linux.
+The library was C code being cross compiled to Windows using mingw.\\
 
-Main accomplishments:\\
-
-\begin{itemize}
-\item Cross compiling code to Windows using mingw.
-\item Developing a cross platform native application in Python.
-\item Developing a simple web server in Python.\\
-\end{itemize}
-
+After that I got involved developing a prototype of a voice
+biometrics system. It involved building a small web server
+in Python that integrated with third party libraries in C that did
+the build and scored voice models and a cross platform
+Python application that provided a user friendly GUI
+to the web server.
 }
 \end{entrylist}
 %------------------------------------------------
@@ -306,16 +296,19 @@ Main accomplishments:\\
 {Florianópolis, Santa Catarina}
 {\emph{Trainee} \\
 
-Developing new features on the DICOMizer, a system responsible to integrate medical equipment to the DICOM system.
+Worked on adding new features on the system responsible to
+integrate medical equipment to the DICOM system. I developed a
+cross platform application that generated a customized GUI
+based on a XML description of a form, making it easier to
+people working at hospitals to manipulate the forms and save
+them back at XML. Like a domain specific XML editor. \\
 
-Main accomplishments:\\
+This involved learning C++ and XML parsing, together with
+developing cross platform GUI applications, on this case
+using WxWidgets. The code has been tested using CppUnit. \\
 
-\begin{itemize}
-\item Experience with C++ development and XML parsing.
-\item Developing a native frontend with C++ and wXwidgets.
-\item Automating the development environment with Python.
-\item Test automation using CppUnit.
-\end{itemize}
+I also automated the setup of the development environment
+using Python.
 }
 \end{entrylist}
 %------------------------------------------------
@@ -327,42 +320,40 @@ Main accomplishments:\\
 \pagebreak
 \section{open source projects}
 
-
 \begin{entrylist}
 \entry
-{2018-now}
-{Abad}
-{\href{https://github.com/NeowayLabs/abad}{https://github.com/NeowayLabs/abad}}
+{2017-now}
+{mdtoc}
+{\href{https://github.com/madlambda/mdtoc}{https://github.com/madlambda/mdtoc}}
 {
-Abad is a Javascript interpreter (subset of the language) aimed at reverse
-engineering, being as simple as possible and enabling steeping and manipulating
-the execution environment.
+A very simple table of contents generator for markdown.
 }
 %------------------------------------------------
 \end{entrylist}
 
 \begin{entrylist}
 \entry
-{2016-now}
-{Nash}
+{2016-2018}
+{nash}
 {\href{https://github.com/NeowayLabs/nash}{https://github.com/NeowayLabs/nash}}
 {
 Nash is a shell language focused on simplicity and having a nicer syntax
-than traditional shells. I use this shell as my interactive shell and it is
-a pet project very close to my heart.
+than traditional shells and support to containers. It also strives to be
+safer than traditional shells.
 }
 %------------------------------------------------
 \end{entrylist}
 
 \begin{entrylist}
 \entry
-{2016-now}
+{2016-2018}
 {klb}
 {\href{https://github.com/NeowayLabs/klb}{https://github.com/NeowayLabs/klb}}
 {
-    klb is used to automate infrastructure creation on AWS and Azure.
-    My development involvement is more focused on Azure, specially when
-    we migrated Neoway infrastructure from AWS to Azure.
+klb is used to automate infrastructure creation on AWS and Azure.
+I got involved on designing the support for Azure since this was
+the tool used to migrate Neoway production infrastructure from
+AWS to Azure.
 }
 %------------------------------------------------
 \end{entrylist}
@@ -373,14 +364,12 @@ a pet project very close to my heart.
 {CppUTest}
 {\href{http://cpputest.github.io}{http://cpputest.github.io}}
 {
-CppUTest is a C /C++ based unit xUnit test framework for unit testing and for test-driving code.
+CppUTest is a C /C++ based unit xUnit test framework for unit
+testing and for test-driving code.
 
-Main accomplishments:\\
-\begin{itemize}
-\item Improving documentation.
-\item Implementing new features on the mocking infrastructure.
-\item Refactoring on the mocking infrastructure.
-\end{itemize}
+In this project I worked both on improving the documentation and
+at adding new native types to the mock framework (which involved
+some refactoring).
 }
 %------------------------------------------------
 \end{entrylist}
@@ -391,13 +380,10 @@ Main accomplishments:\\
 {GStreamer}
 {\href{http://www.gstreamer.net}{http://www.gstreamer.net}}
 {
-GStreamer is a library for constructing graphs of media-handling components.
-
-Main accomplishments:\\
-\begin{itemize}
-\item Developing the \emph{removesilence} plugin.
-\item Improving GstCheck documentation.
-\end{itemize}
+GStreamer is a library for constructing graphs of
+media-handling components. I contributed with a plugin
+named \emph{removesilence} and some documentation for the
+GstCheck documentation.
 }
 %------------------------------------------------
 \end{entrylist}
@@ -408,51 +394,17 @@ Main accomplishments:\\
 {Pattern detection on H.264}
 {\href{https://github.com/katcipis/h264.pattern.detection}{https://github.com/katcipis/h264.pattern.detection}}
 {
-This project is a prototype of a H.264 CODEC that uses OpenCV and H.264 internal algorithms to do pattern detection and
+This is my Bachelor's Thesis and it consists of a prototype
+of a H.264 CODEC that uses OpenCV and H.264 internal
+algorithms to do pattern detection and
 object tracking integrated on the encoding process.
 
-Metadata generated on the encoding process is integrated on the video bitstream on conformance with the standard.
-
-Main accomplishments:\\
-\begin{itemize}
-\item Development of research abilities and textual elaboration of the results obtained.
-\item Usage of a machine learning algorithm (Haar) to detect patterns.
-\item Object oriented C code integrated to a large C code base (the H.264 reference CODEC).
-\item Understanding of the motion estimation algorithms present on H.264.
-\item Writing documents in LaTeX.
-\end{itemize}
+Metadata generated on the encoding process is integrated on
+the video bitstream on conformance with the standard.
 }
 %------------------------------------------------
 \end{entrylist}
 
-\begin{entrylist}
-%------------------------------------------------
-\entry
-{2011}
-{Smartgrid - Access Control}
-{\href{https://github.com/katcipis/smartbuilding.accesscontrol}{https://github.com/katcipis/smartbuilding.accesscontrol}}
-{
-
-Access control system designed to work on a smartgrid. Consists on tablets controlling access to the rooms based on
-a authentication server where the identification is made using RFID.
-
-Also developed the server where new users are registered.
-
-Main accomplishments on the server:\\
-\begin{itemize}
-\item Developing Python server using the ICE protocol (Internet Communications Engine).
-\item Document oriented database using CouchDB.
-\item Native GUI using QT (PySide).
-\item Integration with a RFID USB reader.
-\end{itemize}
-
-Main accomplishments on the client:\\
-\begin{itemize}
-\item Developing on Android 3.0, integrating Java and C++ code (using NDK and JNI).
-\item Communication with a server using the ICE protocol.
-\end{itemize}
-}
-\end{entrylist}
 %------------------------------------------------
 
 \begin{entrylist}
@@ -461,15 +413,10 @@ Main accomplishments on the client:\\
 {LuaSofia}
 {\href{https://github.com/ppizarro/luasofia}{https://github.com/ppizarro/luasofia}}
 {
-
 Lua binding for the Sofia-SIP library.
-Contributed to the project from the start, helping to make decisions about the design of the software and documenting it.
-
-Main accomplishments:\\
-\begin{itemize}
-\item Binding Lua to C.
-\item Understanding of the SIP protocol.
-\end{itemize}
+Contributed to the project from the start,
+helping to make decisions about the design of the
+software and documenting it.
 }
 %------------------------------------------------
 \end{entrylist}
@@ -481,15 +428,8 @@ Main accomplishments:\\
 {GPS tracking system}
 {\href{https://github.com/katcipis/gps.tracking}{https://github.com/katcipis/gps.tracking}}
 {
-
-System designed to provide the location of a device through SMS. 
-
-Main accomplishments:\\
-\begin{itemize}
-\item Integrating an AVR microcontroller with a G.24 Motorola modem and a GPS.
-\item C++ code optimized to embedded systems (no heap allocations or kernel involved).
-\item Understanding of the Motorola G.24 AT protocol.
-\end{itemize}
+System designed to provide the location of a device
+at the receive of a position request using SMS.
 }
 \end{entrylist}
 
@@ -500,15 +440,8 @@ Main accomplishments:\\
 {LuaNotify}
 {\href{https://github.com/katcipis/luanotify}{https://github.com/katcipis/luanotify}}
 {
-
-Lua library that implements the Pub/Sub pattern, inspired on glib GSignal.
-
-Main accomplishments:\\
-\begin{itemize}
-\item Developing Lua code with TDD.
-\item Documenting Lua code with LDoc.
-\item Packaging Lua code with LuaRocks.
-\end{itemize}
+Lua library that implements a simple Pub/Sub system
+inspired on glib GSignal API.
 }
 %------------------------------------------------
 \end{entrylist}
@@ -581,24 +514,10 @@ The application is strongly bounded with the microservices architecture and the 
 Graph and document databases, cache layers, a message broker and a distributed filesystem are some of
 the technologies surrounding the application ecosystem.\\
 
-Also making a great case of integration between AWS and k8s using tools such as autoscaling.\\
-
 Presentation source can be found \href{https://github.com/katcipis/my.presentations/tree/master/real-life-kubernetes}{here}.
 
 }
 %------------------------------------------------
 \end{entrylist}
-
-\pagebreak
-
-%----------------------------------------------------------------------------------------
-%	INTERESTS SECTION
-%----------------------------------------------------------------------------------------
-
-\section{interests}
-
-\textbf{professional:} distributed systems, cloud computing, test driven development, software engineering, software architecture, networks, plan9, linux, open source, artificial intelligence, image processing, dsp, functional programming, embedded systems
-
-\textbf{books:} The Idea Factory, The Practice of Programming, Hackers: Heroes Of The Computer Revolution, The Pragmatic Programmer, Pragmatic Thinking \& Learning, Test Driven Development for Embedded C, REST in Practice, Refactoring: Improving the Design of Existing Code.
 
 \end{document}

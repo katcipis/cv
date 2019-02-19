@@ -1,4 +1,4 @@
-CV_IMAGE=katcipis-dv
+CV_IMAGE=katcipis-cv
 
 all: image
 	docker run -v `pwd`:/cv $(CV_IMAGE) xelatex cv.tex
