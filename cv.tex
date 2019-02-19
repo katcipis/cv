@@ -38,7 +38,7 @@
 \href{http://www.linkedin.com/pub/tiago-katcipis/1b/273/8b0}{LinkedIn}
 \href{http://katcipis.github.io/}{Blog}
 \section{languages skill}
-English: advanced (reading, writing); intermediate (speaking)
+English: advanced
 \section{programming languages}
 Go, C, C++, Python, Lua, Nash, Bash, Javascript
 \section{protocols}
@@ -119,9 +119,13 @@ and SVM to train models. This service was developed in Go with
 integration with externals tools and one developed in Python
 (the feature extractor).\\
 
-I also developed a tool to generate load and evaluate the
+I also developed a tool (also Go) to generate load and evaluate the
 assertiveness of captcha services in a generic way
-(both image and audio ones).
+(both image and audio ones). This tool required multiplexing
+of results coming from multiple different goroutines and an
+{\href{https://github.com/madlambda/spells}{open source library}}
+was developed to help solve that problem. The docs for the multiplexer
+can be found {\href{https://godoc.org/github.com/madlambda/spells}{here}}.
 
 }
 \end{entrylist}
