@@ -31,8 +31,7 @@
 
 \begin{aside} % In the aside, each new line forces a line break
 \section{contact}
-+(55)(48)991060132
-~
++383498590291
 \href{mailto:tiagokatcipis@gmail.com}{tiagokatcipis@gmail.com}
 \href{https://github.com/katcipis}{GitHub}
 \href{http://www.linkedin.com/pub/tiago-katcipis/1b/273/8b0}{LinkedIn}
@@ -44,9 +43,7 @@ Go, C, C++, Python, Lua, Nash, Bash, Javascript
 \section{protocols}
 DBus, RTMP, HTTP, SIP, RTP, AMQP
 \section{cloud}
-Kubernetes, AWS, Azure, Docker, CoreOS, Terraform
-\section{documentation}
-Gtk-Doc, Doxygen, Docbook, LDoc, LaTeX, Docco
+Kubernetes, AWS, Azure, Google Cloud, Docker, CoreOS, Terraform
 \section{automation}
 Ansible, Make
 \section{dev environment}
@@ -91,7 +88,7 @@ of the entire data platform (capture, transformation
 and storage of data) from AWS to Azure. The new platform
 at Azure needed to be fully automated to the point
 that building the entire platform required only one
-command with parameters that allowed the automated build
+command and enabled the automated build
 of staging environments.\\
 
 We also needed to improve security
@@ -101,9 +98,10 @@ infrastructure at Azure called
 {\href{https://github.com/NeowayLabs/klb}{klb}} which is
 developed in Nash. The final
 tooling isolated the user from all this choices using docker
-and provided a CLI. The final solution was used to build
+and provided a CLI. In the end we were able to build
 multiple copies of the entire infrastructure (with different
-sizing) and was used by multiple teams.\\
+sizing) and this was used by multiple teams to deploy
+their infrastructure at Azure.\\
 
 In the sequence we had some problems with captchas that
 required us to solve audio captchas, something that had not
@@ -159,22 +157,27 @@ like proxy, captcha, and raw storage services.
 These services where developed in
 Go and exported metrics using the StatsD protocol. Another service
 was also developed to integrate the new web scrappers into the
-old data pipeline (while the new one was being developed by
-another team).\\
+old data pipeline (while the new data pipeline was being developed by
+another team). This experience involved a lot of designing and
+coding in Go and Python and also brainstorming with other teams
+on how to define protocols integrating the data pipeline.\\
 
 Efforts were made to build an automated development environment
 that enabled developers to build and debug web scrappers
 in isolation of each other. To do this we used Docker and docker-compose.
 The deployment and scheduling of web scrappers was solved using
-Kubernetes on top of CoreOS at AWS and later at Azure. \\
+Kubernetes on top of CoreOS at AWS and later at Azure. Kubernetes
+was essential since each web scrapper is handled as a independent
+unit of deploy and we had more than 200 of them (and also the services).\\
 
 On top of that I was coaching the team on this new architecture
 and how to develop the web scrappers in Python, including the
 use of automated tests, code reviews and continuous integration
 to improve the quality of the web scrappers, solving some serious
-issues with bad quality on the captured data.
-The team was responsible for all the development, from coding
-to deployment, including maintaning
+issues with bad quality on the captured data.\\
+
+The team was responsible for everything, from coding
+to deployment and operations, including maintaining
 the Kubernetes cluster healthy. For monitoring we used Sysdig.
 I also participated on the screening and hiring process of new
 candidates for the team.
