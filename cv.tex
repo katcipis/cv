@@ -116,47 +116,26 @@ My main job was to lead the development of a new
 data capture architecture that would scale better than
 the current one, both in performance as in development
 effort required to develop new web scrappers and maintain
-the current ones. \\
+the current ones. It was also an objective to have
+improved visibility on the health of services
+and the whole data capture process, together with
+improved code quality.\\
 
 The work started by substituting the current web scrapper
-language (a XML) with Python using the Scrappy framework.
+language (XML) with Python using the Scrappy framework.
 This enabled us to tackle new challenges like parsing
-PDF or other complex binary formats (the legacy XML based
-scrapper lacked this capability). Another small Python
-framework was also developed to aid the development of scrappers
-that used Selenium when required. Both frameworks generated
-metrics using the StatsD protocol. \\
+PDF or other complex binary formats and also enabled better
+testing and the introduction of continuous integration.
 
-The next step was to extract logic that resided on the legacy
-web scrapper engine into separate services,
-like proxy, captcha, and raw storage services.
-These services where developed in
-Go and exported metrics using the StatsD protocol. Another service
-was also developed to integrate the new web scrappers into the
-old data pipeline (while the new data pipeline was being developed by
-another team). This experience involved a lot of designing and
-coding in Go and Python and also brainstorming with other teams
-on how to define protocols integrating the data pipeline.\\
+I also helped to define and implement services with clear
+boundaries like proxy, captcha, and raw storage services.
+These services where developed in Go and exported metrics using
+the StatsD protocol.\\
 
-Efforts were made to build an automated development environment
-that enabled developers to build and debug web scrappers
-in isolation of each other. To do this we used Docker and docker-compose.
-The deployment and scheduling of web scrappers was solved using
-Kubernetes on top of CoreOS at AWS and later at Azure. Kubernetes
-was essential since each web scrapper is handled as a independent
-unit of deploy and we had more than 200 of them (and also the services).\\
-
-On top of that I was coaching the team on this new architecture
-and how to develop the web scrappers in Python, including the
-use of automated tests, code reviews and continuous integration
-to improve the quality of the web scrappers, solving some serious
-issues with bad quality on the captured data.\\
-
-The team was responsible for everything, from coding
-to deployment and operations, including maintaining
-the Kubernetes cluster healthy. For monitoring we used Sysdig.
-I also participated on the screening and hiring process of new
-candidates for the team.
+An automated development environment was created using
+Docker and docker-compose and
+the deployment and scheduling of more than 200 web scrappers
+in production was automated using Kubernetes.
 }
 \end{entrylist}
 
