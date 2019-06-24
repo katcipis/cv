@@ -183,7 +183,7 @@ the team to write automated tests for their code.
 
 I started working on a solution to web audio playback
 with very specific audio effects (like silence removal,
-change in pitch) that had to be developed using Flash.
+change in pitch) that had to be developed using Flash (RTMP).
 To solve that problem I worked with
 two different open source C++ projects that did reverse
 engineering of the RTMP protocol to develop our own
@@ -191,20 +191,11 @@ Flash Media Server. I worked directly with the integration
 of the server playback logic with Gstreamer and the plugins
 that enabled the desired effects on playback. \\
 
-The next project was a solution to biometric identification.
-This has been solved by building a service around a third party
-C library that built and scored voice models.
+The next project was a solution to biometric identification
+using a third party C library that built and scored voice models.
 I developed a REST service in Lua that integrated with C code
 that built the voice models and used MongoDB to store the
 voice models and perform searches on the database. \\
-
-Then I developed a service to perform searches for specific
-words in audio files. The service would replace a old one so
-it had to implement the same textual/proprietary stateful protocol
-of the old one. The service itself was implemented in Lua
-with bindings to C code that did the actual search of
-words. \\
-
 }
 \end{entrylist}
 %------------------------------------------------
