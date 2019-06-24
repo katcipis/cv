@@ -151,39 +151,25 @@ Worked on the development of a VoIP phone with touchscreen
 in a very strict environment
 (a Blackfin DSP processor with no MMU and 64MB of RAM).
 The project was built from scratch in C and used
-DBus to integrate different processes. This project involved
-learning considerably about SIP and VoIP state machines
-and also memory issues because of the lack of an MMU, like
-external memory fragmentation. The development environment
+DBus to integrate different processes. The development environment
 was rather complex and involved cross compilation with
 very specific tools. This build of this development environment
 was done using Vagrant and Ansible. \\
 
-Some refined functions on the VoIP phone required integration
-with our PBX that used a rather complex proprietary protocol.
-To solve the integration problem we developed a PBX
-REST service in Lua that integrated with the current legacy
-protocols exposing them in a more web friendly way. This service
-was implemented in Lua. \\
+Also worked on REST services. One to a new and simpler API to
+the company PBX, which was written in Lua. And another one
+was a solution to web audio playback with very specific audio effects
+(like silence removal, change in pitch, DTMF/Fax detection)
+that was a reimplementation
+of a legacy system that used RTMP, but now using HTTP.
 
-My last project at Dígitro was a solution to web audio playback
-with very specific audio effects (like silence removal,
-change in pitch, DTMF/Fax detection) that had to be developed using HTML5.
-It was the rewrite of an old system that worked using Flash.
-Some of the components of the old project, like Gstreamer
-plugins, were reused, but the service itself had to be rewriten
-using REST and HTTP to do the media streaming (and control).
 This was developed in Javascript (NodeJS) integrating with the
-C code for streaming using IPC (Inter Process Communication).
-The original audio files where encoded in IMA ADPCM and another
-proprietary CODEC and were exported through SFTP. Part of the
-problem was also integrating with this legacy infrastructure and
-transcode it to a more web friendly format. \\
+C code for transcoding of different media formats to a format
+more friendly to browsers.\\
 
 During these projects I always practiced and advocated TDD
 (even on embedded systems in C) and helped people on
-the team to write automated tests for their code. I also
-coached two new members in the team.
+the team to write automated tests for their code.
 }
 \end{entrylist}
 
