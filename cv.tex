@@ -31,17 +31,17 @@
 
 \begin{aside} % In the aside, each new line forces a line break
 \section{contact}
-+383498590291
++5548991060132
 \href{mailto:tiagokatcipis@gmail.com}{tiagokatcipis@gmail.com}
 \href{https://github.com/katcipis}{GitHub}
 \href{http://www.linkedin.com/pub/tiago-katcipis/1b/273/8b0}{LinkedIn}
 \href{http://katcipis.github.io/}{Blog}
 \section{languages skill}
-English: advanced
+English: advanced, Portuguese: advanced
 \section{programming languages}
 Go, C, C++, Python, Lua, Nash, Bash, Javascript
 \section{protocols}
-DBus, RTMP, HTTP, SIP, RTP, AMQP
+HTTP, SIP, RTP, AMQP
 \section{cloud}
 Kubernetes, AWS, Azure, Google Cloud, Docker, CoreOS, Terraform
 \section{automation}
@@ -83,48 +83,24 @@ Prometheus, Grafana, StatsD, Sysdig
 {Florianópolis, Santa Catarina}
 {\emph{Software Engineer - Data Platform Team} \\
 
-The first problem to solve was the migration
-of the entire data platform (capture, transformation
-and storage of data) from AWS to Azure. The new platform
-at Azure needed to be fully automated to the point
-that building the entire platform required only one
-command and enabled the automated build
-of staging environments.\\
-
-We also needed to improve security
-which was done using a bastion server. All this was developed
-using an open source project developed at Neoway to deploy
-infrastructure at Azure called
+Led the migration of the entire data platform from AWS to Azure,
+which resulted in a fully automated infrastructure.
+To build this automation an open source project was developed
+at Neoway to deploy infrastructure at Azure called
 {\href{https://github.com/NeowayLabs/klb}{klb}} which is
-developed in Nash. The final
-tooling isolated the user from all this choices using docker
-and provided a CLI. In the end we were able to build
-multiple copies of the entire infrastructure (with different
-sizing) and this was used by multiple teams to deploy
-their infrastructure at Azure.\\
+a stateless tool to build infrastructure.\\
 
-In the sequence we had some problems with captchas that
-required us to solve audio captchas, something that had not
-been done before at Neoway (we had infrastructure for image ones).
-Doing that involved some researching
+After the infrastructure migration I helped to solve an
+audio captcha, something that had not
+been done before at Neoway.Doing that involved some researching
 on current techniques and culminated on a service capable
 of solving a specific audio captcha with 80\% of assertiveness.\\
 
 The creation of this service involved the integration of different
 tools and techniques, like sox to remove noise and segment audios,
 MFC (Mel-Frequency Cepstrum) to extract features from the audio
-and SVM to train models. This service was developed in Go with
-integration with externals tools and one developed in Python
-(the feature extractor).\\
-
-I also developed a tool (also Go) to generate load and evaluate the
-assertiveness of captcha services in a generic way
-(both image and audio ones). This tool required multiplexing
-of results coming from multiple different goroutines and an
-{\href{https://github.com/madlambda/spells}{open source library}}
-was developed to help solve that problem. The docs for the multiplexer
-can be found {\href{https://godoc.org/github.com/madlambda/spells}{here}}.
-
+and SVM to train models. This service (and helper tooling) was developed in Go
+with integration to some open source Python tools for feature extraction.\\
 }
 \end{entrylist}
 
@@ -140,47 +116,26 @@ My main job was to lead the development of a new
 data capture architecture that would scale better than
 the current one, both in performance as in development
 effort required to develop new web scrappers and maintain
-the current ones. \\
+the current ones. It was also an objective to have
+improved visibility on the health of services
+and the whole data capture process, together with
+improved code quality.\\
 
 The work started by substituting the current web scrapper
-language (a XML) with Python using the Scrappy framework.
+language (XML) with Python using the Scrappy framework.
 This enabled us to tackle new challenges like parsing
-PDF or other complex binary formats (the legacy XML based
-scrapper lacked this capability). Another small Python
-framework was also developed to aid the development of scrappers
-that used Selenium when required. Both frameworks generated
-metrics using the StatsD protocol. \\
+PDF or other complex binary formats and also enabled better
+testing and the introduction of continuous integration.
 
-The next step was to extract logic that resided on the legacy
-web scrapper engine into separate services,
-like proxy, captcha, and raw storage services.
-These services where developed in
-Go and exported metrics using the StatsD protocol. Another service
-was also developed to integrate the new web scrappers into the
-old data pipeline (while the new data pipeline was being developed by
-another team). This experience involved a lot of designing and
-coding in Go and Python and also brainstorming with other teams
-on how to define protocols integrating the data pipeline.\\
+I also helped to define and implement services with clear
+boundaries like proxy, captcha, and raw storage services.
+These services where developed in Go and exported metrics using
+the StatsD protocol.\\
 
-Efforts were made to build an automated development environment
-that enabled developers to build and debug web scrappers
-in isolation of each other. To do this we used Docker and docker-compose.
-The deployment and scheduling of web scrappers was solved using
-Kubernetes on top of CoreOS at AWS and later at Azure. Kubernetes
-was essential since each web scrapper is handled as a independent
-unit of deploy and we had more than 200 of them (and also the services).\\
-
-On top of that I was coaching the team on this new architecture
-and how to develop the web scrappers in Python, including the
-use of automated tests, code reviews and continuous integration
-to improve the quality of the web scrappers, solving some serious
-issues with bad quality on the captured data.\\
-
-The team was responsible for everything, from coding
-to deployment and operations, including maintaining
-the Kubernetes cluster healthy. For monitoring we used Sysdig.
-I also participated on the screening and hiring process of new
-candidates for the team.
+An automated development environment was created using
+Docker and docker-compose and
+the deployment and scheduling of more than 200 web scrappers
+in production was automated using Kubernetes.
 }
 \end{entrylist}
 
@@ -196,39 +151,25 @@ Worked on the development of a VoIP phone with touchscreen
 in a very strict environment
 (a Blackfin DSP processor with no MMU and 64MB of RAM).
 The project was built from scratch in C and used
-DBus to integrate different processes. This project involved
-learning considerably about SIP and VoIP state machines
-and also memory issues because of the lack of an MMU, like
-external memory fragmentation. The development environment
+DBus to integrate different processes. The development environment
 was rather complex and involved cross compilation with
 very specific tools. This build of this development environment
 was done using Vagrant and Ansible. \\
 
-Some refined functions on the VoIP phone required integration
-with our PBX that used a rather complex proprietary protocol.
-To solve the integration problem we developed a PBX
-REST service in Lua that integrated with the current legacy
-protocols exposing them in a more web friendly way. This service
-was implemented in Lua. \\
+Also worked on REST services. One to a new and simpler API to
+the company PBX, which was written in Lua. And another one
+was a solution to web audio playback with very specific audio effects
+(like silence removal, change in pitch, DTMF/Fax detection)
+that was a reimplementation
+of a legacy system that used RTMP, but now using HTTP.
 
-My last project at Dígitro was a solution to web audio playback
-with very specific audio effects (like silence removal,
-change in pitch, DTMF/Fax detection) that had to be developed using HTML5.
-It was the rewrite of an old system that worked using Flash.
-Some of the components of the old project, like Gstreamer
-plugins, were reused, but the service itself had to be rewriten
-using REST and HTTP to do the media streaming (and control).
 This was developed in Javascript (NodeJS) integrating with the
-C code for streaming using IPC (Inter Process Communication).
-The original audio files where encoded in IMA ADPCM and another
-proprietary CODEC and were exported through SFTP. Part of the
-problem was also integrating with this legacy infrastructure and
-transcode it to a more web friendly format. \\
+C code for transcoding of different media formats to a format
+more friendly to browsers.\\
 
 During these projects I always practiced and advocated TDD
 (even on embedded systems in C) and helped people on
-the team to write automated tests for their code. I also
-coached two new members in the team.
+the team to write automated tests for their code.
 }
 \end{entrylist}
 
@@ -242,7 +183,7 @@ coached two new members in the team.
 
 I started working on a solution to web audio playback
 with very specific audio effects (like silence removal,
-change in pitch) that had to be developed using Flash.
+change in pitch) that had to be developed using Flash (RTMP).
 To solve that problem I worked with
 two different open source C++ projects that did reverse
 engineering of the RTMP protocol to develop our own
@@ -250,20 +191,11 @@ Flash Media Server. I worked directly with the integration
 of the server playback logic with Gstreamer and the plugins
 that enabled the desired effects on playback. \\
 
-The next project was a solution to biometric identification.
-This has been solved by building a service around a third party
-C library that built and scored voice models.
+The next project was a solution to biometric identification
+using a third party C library that built and scored voice models.
 I developed a REST service in Lua that integrated with C code
 that built the voice models and used MongoDB to store the
 voice models and perform searches on the database. \\
-
-Then I developed a service to perform searches for specific
-words in audio files. The service would replace a old one so
-it had to implement the same textual/proprietary stateful protocol
-of the old one. The service itself was implemented in Lua
-with bindings to C code that did the actual search of
-words. \\
-
 }
 \end{entrylist}
 %------------------------------------------------
@@ -274,18 +206,12 @@ words. \\
 {Florianópolis, Santa Catarina}
 {\emph{Trainee} \\
 
-I started helping in the development of an
+Helped in the development of an
 cross platform (Windows and Linux) audio streaming
 library for a VoIP softphone, aiming at porting
-the current application that was Windows only to Linux.
-The library was C code being cross compiled to Windows using mingw.\\
-
-After that I got involved developing a prototype of a voice
-biometrics system. It involved building a small web server
-in Python that integrated with third party libraries in C that did
-the build and scored voice models and a cross platform
-Python application that provided a user friendly GUI
-to the web server.
+the current application that was Windows only to Linux. I also
+got involved in the development of a prototype for a voice
+biometrics system.
 }
 \end{entrylist}
 %------------------------------------------------
@@ -297,18 +223,11 @@ to the web server.
 {\emph{Trainee} \\
 
 Worked on adding new features on the system responsible to
-integrate medical equipment to the DICOM system. I developed a
-cross platform application that generated a customized GUI
-based on a XML description of a form, making it easier to
-people working at hospitals to manipulate the forms and save
-them back at XML. Like a domain specific XML editor. \\
-
+integrate medical equipment to the DICOM system, developing a
+cross platform domain specific graphical XML editor.
 This involved learning C++ and XML parsing, together with
 developing cross platform GUI applications, on this case
-using WxWidgets. The code has been tested using CppUnit. \\
-
-I also automated the setup of the development environment
-using Python.
+using WxWidgets. The code has been tested using CppUnit.
 }
 \end{entrylist}
 %------------------------------------------------
