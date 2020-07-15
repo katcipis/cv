@@ -23,49 +23,59 @@
 
 \begin{document}
 
-\header{tiago}{katcipis}{software engineer} % Your name and current job title/field
+\header{Tiago}{Katcipis}{Software Engineer} % Your name and current job title/field
 
 %----------------------------------------------------------------------------------------
 %	SIDEBAR SECTION
 %----------------------------------------------------------------------------------------
 
 \begin{aside} % In the aside, each new line forces a line break
-\section{contact}
-+5548991060132
+\section{Contact}
+Berlin,Germany
++39 349 859 0291
 \href{mailto:tiagokatcipis@gmail.com}{tiagokatcipis@gmail.com}
 \href{https://github.com/katcipis}{GitHub}
 \href{http://www.linkedin.com/pub/tiago-katcipis/1b/273/8b0}{LinkedIn}
 \href{http://katcipis.github.io/}{Blog}
-\section{languages skill}
-English: advanced, Portuguese: advanced
-\section{programming languages}
-Go, C, C++, Python, Lua, Nash, Bash, Javascript
-\section{protocols}
-HTTP, SIP, RTP, AMQP
-\section{cloud}
-Kubernetes, AWS, Azure, Google Cloud, Docker, CoreOS, Terraform
-\section{automation}
-Ansible, Make
-\section{dev environment}
-Vagrant, Docker Compose
-\section{monitoring}
-Prometheus, Grafana, StatsD, Sysdig
+\section{Education}
+Bachelor of Computer Science, UFSC, Brazil.
+\section{Languages}
+English, Portuguese.
+\section{Skills}
+Software architecture and design.
+Critical thinking and problem decomposition.
+Clear communication, written and spoken.
+\section{Programming Languages}
+Go, Python, C, C++, Lua, Bash, Javascript.
+\section{Protocols}
+HTTP, gRPC, SIP, RTP, AMQP.
+\section{Automation and Infrastructure}
+Kubernetes, AWS, Azure, Google Cloud, Docker, Terraform,
+Ansible, Make, Vagrant, Docker Compose.
+\section{Monitoring}
+Prometheus, Grafana, StatsD, Sysdig.
 \end{aside}
 
 %----------------------------------------------------------------------------------------
-%	EDUCATION SECTION
+%	INTRO SECTION
 %----------------------------------------------------------------------------------------
 
-\section{education}
+\section{Introduction}
 
 \begin{entrylist}
 %------------------------------------------------
 %------------------------------------------------
 \entry
-{2006--2011}
-{Bachelor of Computer Science}
-{UFSC}
 {}
+{}
+{}
+{
+I'm a curious programmer who likes to explore different ways to design, build and test software
+always trying to understand as much as I can from the entire environment I'm working in.
+That led me to do a lot of different things in my 10 years career, from embedded
+software in C to distributed systems in a variety of languages and protocols.
+I'm passionate about automation and minimalism when building scalable, efficient and flexible software.
+}
 %------------------------------------------------
 \end{entrylist}
 
@@ -73,34 +83,43 @@ Prometheus, Grafana, StatsD, Sysdig
 %	WORK EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
 
-\section{experience}
+\section{Experience}
 
 \begin{entrylist}
 %------------------------------------------------
 \entry
-{2017--now}
+{2019--present}
+{FromAtoB}
+{Berlin, Germany}
+{\emph{Software Engineer - Search2Book Team} \\
+
+\begin{itemize}
+  \item Implemented new location service from scratch (Go, HTTP, gRPC).
+  \item Added PSD2 compliance on payment method storage service (Go).
+  \item Helped migrate core services from legacy environment to new GKE (Google Kubernetes Engine) cluster.
+  \item Built backup routines for critical service (Google Memorystore).
+  \item Improved development environments making them more consistent.
+  \item Integral part of the hiring process doing interviews and pair programming sessions.
+\end{itemize}
+
+}
+\end{entrylist}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2017--2019}
 {Neoway}
-{Florianópolis, Santa Catarina}
+{Florianópolis, Brazil}
 {\emph{Software Engineer - Data Platform Team} \\
 
-Led the migration of the entire data platform from AWS to Azure,
-which resulted in a fully automated infrastructure.
-To build this automation an open source project was developed
-at Neoway to deploy infrastructure at Azure called
-{\href{https://github.com/NeowayLabs/klb}{klb}} which is
-a stateless tool to build infrastructure.\\
-
-After the infrastructure migration I helped to solve an
-audio captcha, something that had not
-been done before at Neoway.Doing that involved some researching
-on current techniques and culminated on a service capable
-of solving a specific audio captcha with 80\% of assertiveness.\\
-
-The creation of this service involved the integration of different
-tools and techniques, like sox to remove noise and segment audios,
-MFC (Mel-Frequency Cepstrum) to extract features from the audio
-and SVM to train models. This service (and helper tooling) was developed in Go
-with integration to some open source Python tools for feature extraction.\\
+\begin{itemize}
+  \item Led the migration of the entire data platform from AWS to Azure.
+  \item Developed tools to automate building infrastructure, like {\href{https://github.com/NeowayLabs/klb}{klb}}.
+  \item Created new service to solve audio captchas (Go, Python, SVM).
+  \item Prototyped image captcha solver using TensorFlow.
+  \item Did 3 different presentations in 2 different conferences.
+\end{itemize}
 }
 \end{entrylist}
 
@@ -109,139 +128,63 @@ with integration to some open source Python tools for feature extraction.\\
 \entry
 {2015--2017}
 {Neoway}
-{Florianópolis, Santa Catarina}
+{Florianópolis, Brazil}
 {\emph{Lead Software Engineer - Data Capture Team} \\
 
-My main job was to lead the development of a new
-data capture architecture that would scale better than
-the current one, both in performance as in development
-effort required to develop new web scrappers and maintain
-the current ones. It was also an objective to have
-improved visibility on the health of services
-and the whole data capture process, together with
-improved code quality.\\
-
-The work started by substituting the current web scrapper
-language (XML) with Python using the Scrappy framework.
-This enabled us to tackle new challenges like parsing
-PDF or other complex binary formats and also enabled better
-testing and the introduction of continuous integration.
-
-I also helped to define and implement services with clear
-boundaries like proxy, captcha, and raw storage services.
-These services where developed in Go and exported metrics using
-the StatsD protocol.\\
-
-An automated development environment was created using
-Docker and docker-compose and
-the deployment and scheduling of more than 200 web scrappers
-in production was automated using Kubernetes.
+\begin{itemize}
+  \item Led development of a new data capture architecture.
+  \item Implementation of multiple services for the new architecture (Python, Go).
+  \item Added improved and fully automated monitoring system (Sysdig, StatsD).
+  \item Coached the team on better testing practices and TDD.
+  \item Fully automated dev environments and deployment (Docker, Docker Compose).
+  \item First team in the company to deploy and use Kubernetes to manage more than 100 deployments.
+\end{itemize}
 }
 \end{entrylist}
 
 \begin{entrylist}
 %------------------------------------------------
 \entry
-{2012--2015}
+{2010--2015}
 {Dígitro}
-{Florianópolis, Santa Catarina}
-{\emph{Lead Software Engineer} \\
-
-Worked on the development of a VoIP phone with touchscreen
-in a very strict environment
-(a Blackfin DSP processor with no MMU and 64MB of RAM).
-The project was built from scratch in C and used
-DBus to integrate different processes. The development environment
-was rather complex and involved cross compilation with
-very specific tools. This build of this development environment
-was done using Vagrant and Ansible. \\
-
-Also worked on REST services. One to a new and simpler API to
-the company PBX, which was written in Lua. And another one
-was a solution to web audio playback with very specific audio effects
-(like silence removal, change in pitch, DTMF/Fax detection)
-that was a reimplementation
-of a legacy system that used RTMP, but now using HTTP.
-
-This was developed in Javascript (NodeJS) integrating with the
-C code for transcoding of different media formats to a format
-more friendly to browsers.\\
-
-During these projects I always practiced and advocated TDD
-(even on embedded systems in C) and helped people on
-the team to write automated tests for their code.
-}
-\end{entrylist}
-
-\begin{entrylist}
-%------------------------------------------------
-\entry
-{2010--2012}
-{Dígitro}
-{Florianópolis, Santa Catarina}
+{Florianópolis, Brazil}
 {\emph{Software Engineer} \\
 
-I started working on a solution to web audio playback
-with very specific audio effects (like silence removal,
-change in pitch) that had to be developed using Flash (RTMP).
-To solve that problem I worked with
-two different open source C++ projects that did reverse
-engineering of the RTMP protocol to develop our own
-Flash Media Server. I worked directly with the integration
-of the server playback logic with Gstreamer and the plugins
-that enabled the desired effects on playback. \\
-
-The next project was a solution to biometric identification
-using a third party C library that built and scored voice models.
-I developed a REST service in Lua that integrated with C code
-that built the voice models and used MongoDB to store the
-voice models and perform searches on the database. \\
+\begin{itemize}
+  \item Developed VoIP phone with color touchscreen from scratch (C on a Blackfin DSP).
+  \item Automated development environment for cross compilation (Ansible, Vagrant).
+  \item Replaced legacy audio service that used Flash (RTMP) with an HTTP/HTML5 solution (NodeJS,C).
+  \item Built new REST service to integrate with company PBX solution (proprietary protocol).
+  \item Built a customized audio playback system (Flash, RTMP, GStreamer, C++).
+  \item Built a biometric identification service (HTTP, Lua, C, MongoDB).
+  \item Coached team on automated testing and TDD.
+\end{itemize}
 }
 \end{entrylist}
+
 %------------------------------------------------
 \begin{entrylist}
 \entry
 {2008--2010}
 {Dígitro}
-{Florianópolis, Santa Catarina}
+{Florianópolis, Brazil}
 {\emph{Trainee} \\
 
-Helped in the development of an
-cross platform (Windows and Linux) audio streaming
-library for a VoIP softphone, aiming at porting
-the current application that was Windows only to Linux. I also
-got involved in the development of a prototype for a voice
-biometrics system.
-}
-\end{entrylist}
-%------------------------------------------------
-\begin{entrylist}
-\entry
-{2007-2008}
-{Cyclops / LAPIX}
-{Florianópolis, Santa Catarina}
-{\emph{Trainee} \\
+\begin{itemize}
+  \item Worked on making Windows only VoIP softphone cross platform (C, GStreamer, RTP, SIP).
+  \item Prototype of biometric identification service (Python, GTK, C).
+  \item Prototype of face detection system with processing on the edges (C, OpenCV).
+\end{itemize}
 
-Worked on adding new features on the system responsible to
-integrate medical equipment to the DICOM system, developing a
-cross platform domain specific graphical XML editor.
-This involved learning C++ and XML parsing, together with
-developing cross platform GUI applications, on this case
-using WxWidgets. The code has been tested using CppUnit.
 }
 \end{entrylist}
 %------------------------------------------------
 
-%----------------------------------------------------------------------------------------
-%	PROJECTS SECTION
-%----------------------------------------------------------------------------------------
-
-\pagebreak
-\section{open source projects}
+\section{Projects}
 
 \begin{entrylist}
 \entry
-{2017-now}
+{}
 {mdtoc}
 {\href{https://github.com/madlambda/mdtoc}{https://github.com/madlambda/mdtoc}}
 {
@@ -252,7 +195,7 @@ A very simple table of contents generator for markdown.
 
 \begin{entrylist}
 \entry
-{2016-2018}
+{}
 {nash}
 {\href{https://github.com/NeowayLabs/nash}{https://github.com/NeowayLabs/nash}}
 {
@@ -265,108 +208,16 @@ safer than traditional shells.
 
 \begin{entrylist}
 \entry
-{2016-2018}
+{}
 {klb}
 {\href{https://github.com/NeowayLabs/klb}{https://github.com/NeowayLabs/klb}}
 {
 klb is used to automate infrastructure creation on AWS and Azure.
-I got involved on designing the support for Azure since this was
-the tool used to migrate Neoway production infrastructure from
-AWS to Azure.
 }
 %------------------------------------------------
 \end{entrylist}
 
-\begin{entrylist}
-\entry
-{2013}
-{CppUTest}
-{\href{http://cpputest.github.io}{http://cpputest.github.io}}
-{
-CppUTest is a C /C++ based unit xUnit test framework for unit
-testing and for test-driving code.
-
-In this project I worked both on improving the documentation and
-at adding new native types to the mock framework (which involved
-some refactoring).
-}
-%------------------------------------------------
-\end{entrylist}
-
-\begin{entrylist}
-\entry
-{2012}
-{GStreamer}
-{\href{http://www.gstreamer.net}{http://www.gstreamer.net}}
-{
-GStreamer is a library for constructing graphs of
-media-handling components. I contributed with a plugin
-named \emph{removesilence} and some documentation for the
-GstCheck documentation.
-}
-%------------------------------------------------
-\end{entrylist}
-
-\begin{entrylist}
-\entry
-{2010-2011}
-{Pattern detection on H.264}
-{\href{https://github.com/katcipis/h264.pattern.detection}{https://github.com/katcipis/h264.pattern.detection}}
-{
-This is my Bachelor's Thesis and it consists of a prototype
-of a H.264 CODEC that uses OpenCV and H.264 internal
-algorithms to do pattern detection and
-object tracking integrated on the encoding process.
-
-Metadata generated on the encoding process is integrated on
-the video bitstream on conformance with the standard.
-}
-%------------------------------------------------
-\end{entrylist}
-
-%------------------------------------------------
-
-\begin{entrylist}
-\entry
-{2010-2011}
-{LuaSofia}
-{\href{https://github.com/ppizarro/luasofia}{https://github.com/ppizarro/luasofia}}
-{
-Lua binding for the Sofia-SIP library.
-Contributed to the project from the start,
-helping to make decisions about the design of the
-software and documenting it.
-}
-%------------------------------------------------
-\end{entrylist}
-
-%------------------------------------------------
-\begin{entrylist}
-\entry
-{2010}
-{GPS tracking system}
-{\href{https://github.com/katcipis/gps.tracking}{https://github.com/katcipis/gps.tracking}}
-{
-System designed to provide the location of a device
-at the receive of a position request using SMS.
-}
-\end{entrylist}
-
-%------------------------------------------------
-\begin{entrylist}
-\entry
-{2010}
-{LuaNotify}
-{\href{https://github.com/katcipis/luanotify}{https://github.com/katcipis/luanotify}}
-{
-Lua library that implements a simple Pub/Sub system
-inspired on glib GSignal API.
-}
-%------------------------------------------------
-\end{entrylist}
-\pagebreak
-
-\section{presentations}
+\section{Presentations}
 
 %------------------------------------------------
 \begin{entrylist}
@@ -375,15 +226,9 @@ inspired on glib GSignal API.
 {Object Orientation in Go}
 {\href{http://www.thedevelopersconference.com.br/tdc/2018/florianopolis/trilha-golang}{The Developers Conference}}
 {
-
-For people that come from a background on Java or other classic object oriented languages
-(like C++) there is also some discussion on if Go is actually object oriented.
-
-In this presentation I try to present Go as a language that is more object oriented than these
-classic languages, at least according to the original foundations of object orientation.
-
+Presented the Go object model as something closer to the original
+idea from Alan Kay then classic object oriented languages like Java and C++.
 Presentation source can be found \href{https://github.com/katcipis/my.presentations/blob/master/gooo/gooo.slide}{here}.
-
 }
 %------------------------------------------------
 \end{entrylist}
@@ -395,20 +240,10 @@ Presentation source can be found \href{https://github.com/katcipis/my.presentati
 {Building Resilient Services in Go}
 {\href{https://2016.gopherconbr.org/en/}{GopherCon Brazil}}
 {
-
-Resilience is not about never failing, but how do you recover from it.
-How can you prevent your services from locking down or exhausting all its resources ?
-How to perform graceful service degradation ? Can this kind of behaviour be tested properly ?\\
-
-On Go we have some new features, like Contexts, that helps us to model timeouts and cancellation properly.\\
-
-They can be combined with other useful features as select and channels to model timeouts and resource pools,
-which can be essential to provide proper service degradation instead of total failure of the system.\\
-
-On this talk I try to answer this questions using new features available on Go 1.7, direct from production ready software.\\
+Presented new features on Go, like Contexts, that helps to model timeouts and
+cancellation properly, which are essential to build a resilient system.\\
 
 Presentation source can be found \href{https://github.com/katcipis/my.presentations/tree/master/resilient-services-in-go}{here}.
-
 }
 %------------------------------------------------
 \end{entrylist}
@@ -420,23 +255,14 @@ Presentation source can be found \href{https://github.com/katcipis/my.presentati
 {Real Life Kubernetes}
 {\href{http://www.thedevelopersconference.com.br/tdc/2016/florianopolis/trilha-devops}{The Developers Conference}}
 {
-
 On this presentation we will give a short introduction on Kubernetes and show the experience of learning
-and using Kubernetes on production for two very distinct systems.\\
-
-The first one is a data acquisition system, involving running multiple instances of different crawlers,
-storage services, captcha breaking services, message brokers (like RabbitMQ) and database integration outside the cluster.\\
-
-The second one is a web application, involving network analysis using graphs with the ultimate goal of fraud prevention.
-The application is strongly bounded with the microservices architecture and the twelve factor app.\\
-
-Graph and document databases, cache layers, a message broker and a distributed filesystem are some of
-the technologies surrounding the application ecosystem.\\
+and using Kubernetes on production.
 
 Presentation source can be found \href{https://github.com/katcipis/my.presentations/tree/master/real-life-kubernetes}{here}.
-
 }
 %------------------------------------------------
 \end{entrylist}
+
+%------------------------------------------------
 
 \end{document}
