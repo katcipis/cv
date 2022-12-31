@@ -32,7 +32,6 @@
 \begin{aside} % In the aside, each new line forces a line break
 \section{Contact}
 Berlin,Germany
-+39 349 859 0291
 \href{mailto:tiagokatcipis@gmail.com}{tiagokatcipis@gmail.com}
 \href{https://github.com/katcipis}{GitHub}
 \href{http://www.linkedin.com/pub/tiago-katcipis/1b/273/8b0}{LinkedIn}
@@ -48,10 +47,10 @@ Clear communication, written and spoken.
 \section{Programming Languages}
 Go, Python, C, C++, Lua, Bash, Javascript.
 \section{Protocols}
-HTTP, gRPC, SIP, RTP, AMQP.
+HTTP, gRPC, SIP, RTP, RTMP, AMQP.
 \section{Automation and Infrastructure}
 Kubernetes, AWS, Azure, Google Cloud, Docker, Terraform,
-Ansible, Make, Vagrant, Docker Compose.
+Ansible, Make, Vagrant, Docker Compose, Kustomize, Helm.
 \section{Monitoring}
 Prometheus, Grafana, StatsD, Sysdig.
 \end{aside}
@@ -72,7 +71,7 @@ Prometheus, Grafana, StatsD, Sysdig.
 {
 I'm a curious programmer who likes to explore different ways to design, build and test software
 always trying to understand as much as I can from the entire environment I'm working in.
-That led me to do a lot of different things in my 10 years career, from embedded
+That led me to do a lot of different things in my 12 years career, from embedded
 software in C to distributed systems in a variety of languages and protocols.
 I'm passionate about automation and minimalism when building scalable, reliable
 and maintainable software.
@@ -89,10 +88,32 @@ and maintainable software.
 \begin{entrylist}
 %------------------------------------------------
 \entry
+{2020--2021}
+{Flink}
+{Berlin, Germany}
+{\emph{Lead Platform Engineer} \\
+
+\begin{itemize}
+  \item Helped infrastructure scale from day one and 10 engineers to 100 engineers and expansion to 3 new countries.
+  \item Setup observability for infrastructure and application (GCP/Sentry).
+  \item Supporting deployment of infrastructure and applications for the whole company (GHA/Kustomize/Terraform).
+  \item Implemented auto scaling for the main e-commerce service using Kubernetes (Django app).
+  \item Infrastructure 100\% automated using Terraform, enabled easy expansion to multiple countries.
+  \item Supported migration to micro-services helping teams setup CI/CD automation using GHA.
+  \item Assessed and mitigated performance issues in production involving GraphQL/Django/CloudSQL (PostgreSQL).
+  \item Migrating monitoring to Datadog, exporting logs and metrics from GCP + using APM for traces on applications.
+\end{itemize}
+
+}
+\end{entrylist}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
 {2019--2020}
 {FromAtoB}
 {Berlin, Germany}
-{\emph{Software Engineer - Search2Book Team} \\
+{\emph{Senior Software Engineer - Search2Book Team} \\
 
 \begin{itemize}
   \item Implemented new location service from scratch (Go, HTTP, gRPC, Prometheus).
@@ -112,7 +133,7 @@ and maintainable software.
 {2017--2019}
 {Neoway}
 {Florianópolis, Brazil}
-{\emph{Software Engineer - Data Platform Team} \\
+{\emph{Senior Software Engineer - Data Platform Team} \\
 
 \begin{itemize}
   \item Led the migration of the entire data platform from AWS to Azure.

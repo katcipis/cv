@@ -1,11 +1,14 @@
-CV_IMAGE=katcipis-cv
+CV_IMAGE=katcipis/cv
 
 all: image
-	docker run -v `pwd`:/cv $(CV_IMAGE) xelatex cv.tex && \
+	podman run -v `pwd`:/cv $(CV_IMAGE) xelatex cv.tex && \
 	evince cv.pdf
 
 image:
-	docker build -t $(CV_IMAGE) .
+	podman build -t $(CV_IMAGE) .
 
 shell: image
-	docker run -ti -v `pwd`:/cv $(CV_IMAGE) bash
+	podman run -ti -v `pwd`:/cv $(CV_IMAGE) bash
+
+publish: image
+	podman push $(CV_IMAGE)
